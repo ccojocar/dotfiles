@@ -1,0 +1,244 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode python-mode
+      :tags 
+        '( ("logging" include nil nil [508 522])
+            ("argparse" include nil nil [523 538])
+            ("fabric.api" include nil nil [539 563])
+            ("fabric.colors" include nil nil [564 591])
+            ("fabric.contrib.console" include nil nil [592 628])
+            ("fabric.operations" include nil nil [629 660])
+            ("pulp" include nil nil [661 679])
+            ("haproxyadmin" include nil nil [680 712])
+            ("" code nil nil [745 798])
+            ("WEBLB_HOSTNAMES" variable nil nil [836 930])
+            ("if" code nil nil [931 1014])
+            ("MIN_AVALIABLITY" variable nil nil [1056 1076])
+            ("LOGPATH" variable nil nil [1092 1126])
+            ("PUPPET" variable nil nil [1185 1206])
+            ("SKIP_ON_FAILURE" variable nil nil [1207 1237])
+            ("REBOOT" variable nil nil [1238 1259])
+            ("NOOP" variable nil nil [1260 1279])
+            ("REMOTE" variable nil nil [1280 1301])
+            ("VERSION" variable nil nil [1303 1329])
+            ("sys" code nil nil [1351 1388])
+            ("hap" variable nil nil [1389 1441])
+            ("logging" code nil nil [1443 1549])
+            ("logger" variable nil nil [1550 1578])
+            ("setup_fabric" function
+               (:documentation "
+    Sets options up for fabric to execute commands.
+
+    :param hosts: a list of hosts that will be used to execute the task
+    :return:
+    "
+                :arguments 
+                  ( ("hosts" variable nil (reparse-symbol function_parameters) [1597 1602])
+                    ("para" variable nil (reparse-symbol function_parameters) [1603 1607]))                  )
+                nil [1580 1927])
+            ("get_server_name" function
+               (:documentation "
+    Reverse lookup on pulp variable dictionary to get the key from the value
+    ref. https://github.com/coin-or/pulp/blob/master/src/pulp/pulp.py#L161:L169
+
+    :param vars_dict:
+    :param pulp_server_name:
+    :return:
+    "
+                :arguments 
+                  ( ("vars_dict" variable nil (reparse-symbol function_parameters) [1949 1958])
+                    ("pulp_server_name" variable nil (reparse-symbol function_parameters) [1960 1976]))                  )
+                nil [1929 2326])
+            ("get_unique_servers" function (:documentation "
+    Return sorted list of unique server names
+    :return:
+    ") nil [2328 2513])
+            ("solve_problem" function
+               (:documentation "
+    Heart and soul of the web roller here. Returns a LP object that is used to extract which servers should be
+    turned \"on\" and which should be turned \"off\" to maintain minimum availability requirements.
+
+    Server state:
+        0 - disabled
+        1 - enabled
+    :param servers_deployed:
+    :param min_availability:
+    :return:
+    "
+                :arguments 
+                  ( ("servers_deployed" variable nil (reparse-symbol function_parameters) [2533 2549])
+                    ("min_availability" variable nil (reparse-symbol function_parameters) [2554 2570]))                  )
+                nil [2515 3721])
+            ("get_backends" function (:documentation "
+    Return list of haproxyadmin.backend.Backend objects
+    :return:
+    ") nil [3723 3854])
+            ("node_reboot" function
+               (:documentation "
+    Reboot the remote system.
+    checkout: https://github.com/fabric/fabric/blob/217d71e6a64a7aeb1bc9be710f4c24b95a4f7b41/fabric/operations.py#L1215-L1262
+
+    :param wait:
+    :param command:
+    :return:
+    "
+                :arguments 
+                  ( ("wait" variable nil (reparse-symbol function_parameters) [3884 3888])
+                    ("command" variable nil (reparse-symbol function_parameters) [3894 3901]))                  
+                :decorators 
+                  ( ("needs_host" function (:type "decorator") nil nil))                  )
+                nil [3856 4435])
+            ("node_action" function
+               (:documentation "
+    The Task to be run on each host behind the load balancer.
+    :return:
+    "
+                :decorators 
+                  ( ("task" function (:type "decorator") nil nil))                  )
+                nil [4437 5152])
+            ("resolve_and_run" function
+               (:documentation "
+    Determines if the target to be run is a list or a single host and handles it appropriately.
+    :param fun: A function that is passed to this funtion and is used with the supplied parameters. This
+                can be used to either enable or disable the hosts.
+    :param kwards:
+        - target: the selected nodes that are meant to be run in this.
+    :return:
+    "
+                :arguments 
+                  ( ("fun" variable nil (reparse-symbol function_parameters) [5174 5177])
+                    ("kwards" variable nil (reparse-symbol function_parameters) [5179 5187]))                  )
+                nil [5154 5949])
+            ("perform_remote_lb_operation" function
+               (:decorators 
+                  ( ("task" function (:type "decorator") nil nil))                  
+                :arguments 
+                  ( ("toggle" variable nil (reparse-symbol function_parameters) [5989 5995])
+                    ("selected_node" variable nil (reparse-symbol function_parameters) [5997 6010]))                  )
+                nil [5951 6488])
+            ("disable_host" function
+               (:documentation "
+    Head of the \"disabling process\". Call this and it will resolve whether a host or a list of hosts
+    should be disabled locally and remotely or just locally.
+    :param selected_node: a str or list of hosts to be disabled.
+    :return:
+    "
+                :arguments 
+                  ( ("selected_node" variable nil (reparse-symbol function_parameters) [6507 6520]))                  )
+                nil [6490 7029])
+            ("disable_helper" function
+               (:documentation "
+    Takes haproxyadmin server object and handles the disabling process. Will first drain the server's concurrent
+    sessions until it reaches zero before setting the server as down for maintenance.
+    :param server: server object to be drained and disabled.
+    :return:
+    "
+                :arguments 
+                  ( ("server" variable nil (reparse-symbol function_parameters) [7050 7056]))                  )
+                nil [7031 8042])
+            ("renable_host" function
+               (:documentation "
+    Head of the \"enabling process\". Call this and it will resolve whether a host or a list of hosts
+    should be enabled locally and remotely or just locally.
+    :param selected_node: a str or list of hosts to be enabled.
+    :return:
+    "
+                :arguments 
+                  ( ("selected_node" variable nil (reparse-symbol function_parameters) [8061 8074]))                  )
+                nil [8044 8579])
+            ("renable_helper" function
+               (:documentation "
+    Takes haproxyadmin server object and handles the enabling process. Sets a server to the ready position
+    :param server: server object to be enabled.
+    :return:
+    "
+                :arguments 
+                  ( ("server" variable nil (reparse-symbol function_parameters) [8600 8606]))                  )
+                nil [8581 9083])
+            ("print_cluster_topology" function
+               (:documentation "
+    Self-explanatory.
+    :param cluster_topology: list of servers
+    :return:
+    "
+                :arguments 
+                  ( ("cluster_topology" variable nil (reparse-symbol function_parameters) [9112 9128]))                  )
+                nil [9085 9293])
+            ("check_prerequisites" function (:documentation "
+    Ensures that this is being run as the fabric user and under a screen.
+    :return:
+    ") nil [9295 9791])
+            ("confirm_after_exclusion" function
+               (:documentation "
+    read the name.
+    :param machines_topology:
+    :return:
+    "
+                :arguments 
+                  ( ("machines_topology" variable nil (reparse-symbol function_parameters) [9821 9838]))                  )
+                nil [9793 10111])
+            ("fix_names" function
+               (:documentation "
+    The output of the lpsolve process are these weird names that need to be \"converted\" back to our naming convention.
+    This was the best way I found to do that. They come out looking like \"Server_dev1_webapp4_1\".
+    :param node_list: list of nodes with weird names.
+    :return:
+    "
+                :arguments 
+                  ( ("node_list" variable nil (reparse-symbol function_parameters) [10127 10136]))                  )
+                nil [10113 10765])
+            ("print_solve_iteration" function
+               (:documentation "
+    Handy verbose printing of what is happening under the hood after each solve. By default this is disabled for
+    the normal use of this script, but it might be handy in the future to use so I'm leaving it here. Just set the
+    printout flag to True and let the good times roll.
+
+    :param lp_prob:
+    :param lp_vars:
+    :param nodes:
+    :param selected:
+    :param sequence:
+    :param printout:
+    :return:
+    "
+                :arguments 
+                  ( ("lp_prob" variable nil (reparse-symbol function_parameters) [10793 10800])
+                    ("lp_vars" variable nil (reparse-symbol function_parameters) [10802 10809])
+                    ("nodes" variable nil (reparse-symbol function_parameters) [10811 10816])
+                    ("selected" variable nil (reparse-symbol function_parameters) [10818 10826])
+                    ("sequence" variable nil (reparse-symbol function_parameters) [10828 10836])
+                    ("printout" variable nil (reparse-symbol function_parameters) [10838 10846]))                  )
+                nil [10767 11754])
+            ("add_single_servers" function
+               (:documentation "
+    Add servers to the sequence that were not already part of the sequence. This will cover the servers that did not
+    meet the minimum aval requirements.
+    :param sequence: list of lists of servers to be run
+    :return:
+    "
+                :arguments 
+                  ( ("sequence" variable nil (reparse-symbol function_parameters) [11778 11786]))                  )
+                nil [11755 12206])
+            ("perform_roller" function
+               (:documentation "
+    This thing does the work. First generates the on/off sequence and then runs the configuration set up at runtime .
+
+    :param nodes_exclusion_list:
+    :return:
+    "
+                :arguments 
+                  ( ("nodes_exclusion_list" variable nil (reparse-symbol function_parameters) [12227 12247]))                  )
+                nil [12208 14474])
+            ("if" code nil nil [14476 18217]))          
+      :file "web_roller.py.erb"
+      :pointmax 18217
+      :fsize 18216
+      :lastmodtime '(22284 45216 494475 332000)
+      :unmatched-syntax '((PRINT 17007 . 17012) (IF 17019 . 17021) (ELSE 17040 . 17044) (PRINT 16876 . 16881) (IF 16888 . 16890) (ELSE 16912 . 16916) (PRINT 16751 . 16756) (IF 16769 . 16771) (ELSE 16784 . 16788) (PRINT 16587 . 16592) (IF 16621 . 16623) (ELSE 16634 . 16638) (INDENT_BLOCK 15966 . 16142) (NEWLINE 15965 . 15966) (COLON 15964 . 15965) (TRY 15836 . 15839) (AS 15960 . 15962) (INDENT_BLOCK 15607 . 15789) (NEWLINE 15606 . 15607) (COLON 15605 . 15606) (TRY 15474 . 15477) (AS 15601 . 15603))))
+  :file "!home!cgc!projects!r10k!puppet!mods!nb_tools!templates!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

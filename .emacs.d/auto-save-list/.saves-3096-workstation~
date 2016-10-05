@@ -1,0 +1,8 @@
+/home/cgc/projects/operations/puppet-esit/mods/profiles/manifests/esit/nb_jenkins/master.pp
+/tmp/#!home!cgc!projects!operations!puppet-esit!mods!profiles!manifests!esit!nb_jenkins!master.pp#
+/home/cgc/projects/operations/puppet-esit/hieradata/esit.yaml
+/tmp/#!home!cgc!projects!operations!puppet-esit!hieradata!esit.yaml#
+/home/cgc/projects/operations/puppet-esit/hieradata/users.yaml
+/tmp/#!home!cgc!projects!operations!puppet-esit!hieradata!users.yaml#
+/home/cgc/projects/operations/puppet-esit/mods/profiles/manifests/esit/nb_jenkins/slave.pp
+/tmp/#!home!cgc!projects!operations!puppet-esit!mods!profiles!manifests!esit!nb_jenkins!slave.pp#

@@ -1,0 +1,14 @@
+;; Emacs-W3 HTTP cookies file
+;; Automatically generated file!!! DO NOT EDIT!!!
+
+(setq url-cookie-storage
+ 'nil)
+(setq url-cookie-secure-storage
+ '(("login.windows-ppe.net"
+  [url-cookie "buid" "AAABAAEAo3ZCPl0FaU2WWRdLWLHpev9GAFGOpHWokoJlXvHBrHGXApQNlBzIO6lpvavvNG3P0199b-BeqL9KHymiGlrm8yc3h_7W-keSyW2XRtPTjTFzPxIlbVFEEnOUddvOe94xIAA" "31-Oct-2016 12:59:04.00 GMT" "/" "login.windows-ppe.net" t]))
+)
+
+;; Local Variables:
+;; version-control: never
+;; no-byte-compile: t
+;; End:

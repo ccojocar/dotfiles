@@ -1,0 +1,10 @@
+#!/bin/sh
+alias mvnFast='mvn -DskipTests=true -DskipJavadoc=true -P dev -T 4'
+alias mvnFastest='mvn -DskipDebianPackaging=true -Dsindbad.profile=dev -DskipJavadoc=true -DskipTests=true -P dev -T 4'
+alias mvnFastTest='mvn -DskipJavadoc=true -P dev -T 4'
+
+mvn_change_version() {
+  mvn versions:set -DgenerateBackupPoms=false -DnewVersion=$1
+}
+
+alias mvnVersion=mvn_change_version
