@@ -1,0 +1,11 @@
+#
+# Mailboxes to monitor for mail
+# (arranged in urgency reading order)
+#
+mailboxes "+-- Cosmin ------------" \
+          imaps://$my_server/[Gmail]/Imbox \
+          imaps://$my_server/[Gmail]/All Mail \
+          imaps://$my_server/[Gmail]/Drafts \
+          imaps://$my_server/[Gmail]/Sent Mail \
+          imaps://$my_server/[Gmail]/Trash \
+          imaps://$my_server/[Gmail]/Starred \

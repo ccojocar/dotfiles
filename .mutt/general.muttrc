@@ -1,0 +1,66 @@
+# -*- muttrc -*-
+#
+# Global settings
+#
+
+# directories and commands
+
+set header_cache     = "~/.mutt/cache/headers"
+set message_cachedir = "~/.mutt/cache/bodies"
+set certificate_file = "~/.mutt/certificates"
+set mailcap_path     = "~/.mutt/mailcap"       	# entrys for filetypes
+set signature        = "~/.mutt/sig"           	# my signature file
+set tmpdir           = "/tmp"                          		# where to keep temp files
+
+
+
+set sleep_time       = 0    # remove silly pause
+set delete	# don't ask me to delete messages - just do it!
+
+# index options
+
+set sort              = threads                     # like gmail
+set sort_browser      = date
+set sort_aux          = reverse-last-date-received  # like gmail
+set uncollapse_jump                                 # don't collapse on an unread message
+set sort_re                                         # thread based on regex
+set reply_regexp      = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+
+# pager options
+
+set pager_index_lines = 10                          # number of index lines to show
+set pager_context     = 5                           # number of context lines to show
+set pager_stop                                      # don't go to next message automatically
+set menu_scroll                                     # scroll in menus
+set smart_wrap                                      # don't split words
+set tilde                                           # show tildes like in vim
+
+unset markers                                       # no ugly plus signs
+auto_view text/html                                 # view html automatically
+
+# http://www.mutt.org/doc/manual/manual-5.html#ss5.5
+alternative_order text/plain text/enriched text/html
+
+# formats
+
+set charset           = utf-8
+set send_charset      = utf-8
+set date_format       = "%m/%d"
+set alias_format      = "%4n %t %-20a  %r"
+set index_format      = "%[%b %d %H:%M]   %-15.15L   %?M?<%03M> &      ?%s"
+set status_format     = "%f (%s) (%?V?limited to '%V'&no limit pattern?) (%P)"
+
+# Allow Mutt to open new imap connection automatically.
+unset imap_passive
+# Keep IMAP connection alive by polling intermittently (time in seconds).
+set imap_keepalive    = 300
+# How often to check for new mail (time in seconds).
+set mail_check        = 120
+
+# Opening links etc
+
+macro index \cb "|urlview<enter>" 'call urlview to extract URLs out of a message'
+macro pager \cb "|urlview<enter>" 'call urlview to extract URLs out of a message'
+
+
+# vim: filetype=muttrc
