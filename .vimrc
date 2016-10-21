@@ -1,6 +1,5 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'mileszs/ack.vim'
 Plug 'fatih/vim-go'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'Raimondi/delimitMate'
@@ -28,6 +27,14 @@ Plug 'tommcdo/vim-exchange'
 Plug 'pangloss/vim-javascript'
 Plug 'dyng/ctrlsf.vim'
 Plug 'junegunn/vim-easy-align'
+Plug 'tomtom/tcomment_vim'
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+Plug 'leafgarland/typescript-vim' 
+Plug 'Quramy/tsuquyomi'
+Plug 'Quramy/vim-js-pretty-template'
+Plug 'jason0x43/vim-js-indent'
+Plug 'Quramy/vim-dtsm'
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim'
@@ -555,7 +562,7 @@ endfunction
 " ==================== NerdTree ====================
 " For toggling
 noremap <Leader>n :NERDTreeToggle<cr>
-noremap <Leader>f :NERDTreeFind<cr>
+" noremap <Leader>f :NERDTreeFind<cr>
 
 let NERDTreeShowHidden=1
 
@@ -666,5 +673,24 @@ let g:javascript_plugin_ngdoc = 1
 xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+
+" =================== Unite  =======================================
+nnoremap <leader>f :<C-u>Unite file<CR>
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+nnoremap <leader>r :<C-u>Unite -buffer-name=register register<CR>
+nnoremap <silent> <leader>b :<C-u>Unite -quick-match buffer bookmark<CR>
+
+" =================== Typescript  =======================================
+autocmd FileType typescript :set makeprg=tsc
+autocmd QuickFixCmdPost [^l]* nested cwindow
+autocmd QuickFixCmdPost    l* nested lwindow
+let g:tsuquyomi_disable_quickfix = 1
+let g:syntastic_typescript_checkers = ['tsuquyomi'] " You shouldn't use 'tsc' checker.
+
+" ================== YouCompleteMe ====================================
+nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>gr :YcmCompleter GoToReferences<CR>
+nnoremap <leader>go :YcmCompleter GetDoc<CR>
 
 " vim: sw=2 sw=2 et
