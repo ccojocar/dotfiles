@@ -2,7 +2,6 @@
 	email = cosmin.cojocar@protonmail.ch
 	name = Cosmin Cojocar
 [core]
-	excludesfile = /Users/cosmincojocar/.gitignore_global
 	mergeoptions = --no-edit
 	repositoryformatversion = 0
 	filemode = true
