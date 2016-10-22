@@ -249,12 +249,6 @@ if has('nvim')
   tnoremap <C-k> <C-\><C-n><C-w>k
   tnoremap <C-l> <C-\><C-n><C-w>l
 
-  " Open terminal in vertical, horizontal and new tab
-  " NOTE(arslan): never used them
-  " nnoremap <leader>tv :vsplit term://zsh<CR>
-  " nnoremap <leader>ts :split term://zsh<CR>
-  " nnoremap <leader>tt :tabnew term://zsh<CR>
-
   " always start terminal in insert mode
   autocmd BufWinEnter,WinEnter term://* startinsert
 endif
