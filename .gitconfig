@@ -1,28 +1,25 @@
 [user]
-	email = cosmin.cojocar@protonmail.ch
 	name = Cosmin Cojocar
+	email = cosmc@microsoft.com
 [core]
-	mergeoptions = --no-edit
-	repositoryformatversion = 0
-	filemode = true
-	bare = false
-	logallrefupdates = true
+	fileMode = false
+	autocrlf = input
 	editor = vim
+	commentChar = *
 [alias]
-	hist = log --pretty=format:'%C(yellow)[%ad]%C(reset) %C(green)[%h]%C(reset) | %C(white)%s %C(bold red)[%an]%C(reset) %C(blue)%d%C(reset)' --graph --date=short
-	lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
-	lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
-	lg = !"git lg1"
-[color]
-	ui = true
+lg1 = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
+lg2 = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(bold white)— %an%C(reset)' --abbrev-commit
+lg3 = log --graph --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(bold white)— %an%C(reset)' --abbrev-commit
+lg = !"git lg1"
 [credential]
-	helper = osxkeychain
-[diff]
-	tool = vimdiff
-[difftool]
-	prompt = false
+	helper = cache --timeout=604800
 [merge]
-	tool = vimdiff
-	conflictstyle = diff3
+  tool = vimdiff
 [mergetool]
-	prompt = false
+  prompt = true
+[mergetool "vimdiff"]
+  cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[difftool]
+  prompt = false
+[diff]
+  tool = vimdiff
