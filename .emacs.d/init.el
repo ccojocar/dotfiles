@@ -40,7 +40,7 @@
  '(magit-log-arguments (quote ("--graph" "--color" "--decorate" "-n256")))
  '(package-selected-packages
    (quote
-	(linum-relative tern js2-closure ac-js2 js2-refactor js2-mode evil-ediff evil-surround colemak-evil evil-smartparens evil-args evil-magit evil pyflakes smooth-scrolling multiple-cursors avy-zap avy cargo rust-mode function-args ggtags helm-gtags diffview gradle-mode maven-test-mode jenkins angular-mode js-doc serverspec fixmee fixme-mode neotree yaoddmuse yaml-mode wrap-region web-mode typescript-mode tss tidy textmate switch-window rw-language-and-country-codes rw-ispell rw-hunspell rvm ruby-tools ruby-refactor ruby-interpolation ruby-compilation ruby-block ruby-additional rspec-mode rsense robe real-auto-save rake puppetfile-mode puppet-mode popwin popup-kill-ring org-bullets org-autolist monokai-theme markup markdown-toc markdown-mode+ magit-gitflow magit-find-file log4j-mode lib-requires latex-preview-pane latex-extra jedi iedit http-post-simple helm-swoop helm-robe helm-projectile helm-ispell helm-go-package helm-git-grep helm-git helm-flyspell helm-ag header2 goto-last-change go-snippets go-projectile go-errcheck go-complete go-autocomplete git fuzzy-match flymake-yaml flymake-ruby flymake-puppet flymake-json flymake-go flycheck-d-unittest flex-autopair finder+ find-things-fast find-file-in-repository find-dired+ files+ expand-region exec-path-from-shell eruby-mode env-var-import enh-ruby-mode dockerfile-mode docker-tramp docker django-snippets direx d-mode company-restclient company-quickhelp company-jedi company-inf-ruby company-go bundler buffer-move autopair auto-yasnippet auto-complete-nxml aggressive-indent ace-jump-mode ac-inf-ruby ac-html ac-helm ac-dcd)))
+	(py-autopep8 csharp-mode linum-relative tern js2-closure ac-js2 js2-refactor js2-mode evil-ediff evil-surround colemak-evil evil-smartparens evil-args evil-magit evil pyflakes smooth-scrolling multiple-cursors avy-zap avy cargo rust-mode function-args ggtags helm-gtags diffview gradle-mode maven-test-mode jenkins angular-mode js-doc serverspec fixmee fixme-mode neotree yaoddmuse yaml-mode wrap-region web-mode typescript-mode tss tidy textmate switch-window rw-language-and-country-codes rw-ispell rw-hunspell rvm ruby-tools ruby-refactor ruby-interpolation ruby-compilation ruby-block ruby-additional rspec-mode rsense robe real-auto-save rake puppetfile-mode puppet-mode popwin popup-kill-ring org-bullets org-autolist monokai-theme markup markdown-toc markdown-mode+ magit-gitflow magit-find-file log4j-mode lib-requires latex-preview-pane latex-extra jedi iedit http-post-simple helm-swoop helm-robe helm-projectile helm-ispell helm-go-package helm-git-grep helm-git helm-flyspell helm-ag header2 goto-last-change go-snippets go-projectile go-errcheck go-complete go-autocomplete git fuzzy-match flymake-yaml flymake-ruby flymake-puppet flymake-json flymake-go flycheck-d-unittest flex-autopair finder+ find-things-fast find-file-in-repository find-dired+ files+ expand-region exec-path-from-shell eruby-mode env-var-import enh-ruby-mode dockerfile-mode docker-tramp docker django-snippets direx d-mode company-restclient company-quickhelp company-jedi company-inf-ruby company-go bundler buffer-move autopair auto-yasnippet auto-complete-nxml aggressive-indent ace-jump-mode ac-inf-ruby ac-html ac-helm ac-dcd)))
  '(puppet-lint-command
    "puppet-lint --with-context --no-autoloader_layout-check --log-format \"%{path}:%{line}: %{kind}: %{message} (%{check})\"")
  '(restclient-log-request t)
@@ -70,7 +70,12 @@
   "b" 'switch-to-buffer
   "k" 'kill-buffer
   "q" 'evil-quit
-  "n" 'neotree-toggle)
+  "n" 'neotree-toggle
+  "pp" 'helm-projectile-switch-project
+  "pf" 'helm-projectile
+  "ps" 'helm-projectile-ag
+  "pa" 'helm-projectile-find-file-in-known-projects
+  )
 
 ;; NeoTree
 (setq neo-smart-open t)
@@ -243,7 +248,7 @@
 (add-hook 'asm-mode-hook 'helm-gtags-mode)
 
 (define-key helm-gtags-mode-map (kbd "C-c g a") 'helm-gtags-tags-in-this-function)
-(define-key helm-gtags-mode-map (kbd "C-j") 'helm-gtags-select)
+;; (define-key helm-gtags-mode-map (kbd "C-j") 'helm-gtags-select)
 (define-key helm-gtags-mode-map (kbd "M-.") 'helm-gtags-dwim)
 (define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)
 (define-key helm-gtags-mode-map (kbd "C-c <") 'helm-gtags-previous-history)
@@ -369,6 +374,7 @@
 (global-set-key (kbd "<f6>") 'flyspell-mode)
 (eval-after-load "flyspell"
   '(define-key flyspell-mode-map (kbd "C-;") 'helm-flyspell-correct))
+(global-set-key (kbd "C-M-w") 'flyspell-auto-correct-previous-word)
 
 ;; Flycheck
 (add-hook 'after-init-hook #'global-flycheck-mode)
@@ -533,6 +539,7 @@
 ;; Python
 (add-hook 'python-mode-hook 'jedi:setup)
 (setq jedi:complete-on-dot t)
+;;(add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
 
 ;; C++
 ;; swhitch between header and imlementation
