@@ -39,6 +39,7 @@ Plug 'Quramy/vim-dtsm'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim'
   Plug 'zchee/deoplete-go', { 'do': 'make'}
+  Plug 'fishbullet/deoplete-ruby'
 else
   Plug 'Shougo/neocomplete.vim'
 endif
@@ -49,6 +50,8 @@ Plug 'elzr/vim-json', {'for' : 'json'}
 Plug 'ekalinin/Dockerfile.vim', {'for' : 'Dockerfile'}
 Plug 'fatih/vim-nginx' , {'for' : 'nginx'}
 Plug 'corylanou/vim-present', {'for' : 'present'}
+Plug 'nvie/vim-flake8'
+Plug 'vim-utils/vim-alt-mappings'
 
 call plug#end()
 
@@ -209,7 +212,7 @@ let mapleader = ","
 
 " Some useful quickfix shortcuts for quickfix
 map <C-n> :cn<CR>
-map <C-m> :cp<CR>
+map <C-p> :cp<CR>
 nnoremap <leader>a :cclose<CR>
 
 " Fast saving
@@ -248,6 +251,12 @@ if has('nvim')
   tnoremap <C-j> <C-\><C-n><C-w>j
   tnoremap <C-k> <C-\><C-n><C-w>k
   tnoremap <C-l> <C-\><C-n><C-w>l
+
+  " Open terminal in vertical, horizontal and new tab
+  " NOTE(arslan): never used them
+  " nnoremap <leader>tv :vsplit term://zsh<CR>
+  " nnoremap <leader>ts :split term://zsh<CR>
+  " nnoremap <leader>tt :tabnew term://zsh<CR>
 
   " always start terminal in insert mode
   autocmd BufWinEnter,WinEnter term://* startinsert
@@ -654,9 +663,9 @@ endif
 
 " ==================== ctags ===========================================
 set tags+=./tags
-au BufRead,BufNewFile *.rb setlocal tags+=~/.vim/tags/ruby_and_gems
-map <leader>t :!ctags -R --exclude=.git --exclude=logs --exclude=doc .<CR>
 
+au BufRead,BufNewFile *.rb setlocal tags+=~/.vim/tags/tags_gems
+map <leader>t :!ripper-tags -R --exclude=vendor .<CR>
 
 " =================== JavaScript =======================================
 let g:javascript_plugin_jsdoc = 1
@@ -686,5 +695,27 @@ nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>gr :YcmCompleter GoToReferences<CR>
 nnoremap <leader>go :YcmCompleter GetDoc<CR>
+
+" ================= Python ===========================================
+au BufNewFile,BufRead *.py.erb 
+      \ set filetype=python |
+      \ set tabstop=4 |
+      \ set softtabstop=4 | 
+      \ set shiftwidth=4 |
+      \ set textwidth=79 |
+      \ set expandtab |
+      \ set autoindent |
+      \ set fileformat=unix |
+
+au BufNewFile,BufRead *.py
+      \ set tabstop=4 |
+      \ set softtabstop=4 |
+      \ set shiftwidth=4 |
+      \ set textwidth=79 |
+      \ set expandtab |
+      \ set autoindent |
+      \ set fileformat=unix |
+
+autocmd FileType python map <buffer> <F3> :call Flake8()<CR>
 
 " vim: sw=2 sw=2 et
