@@ -1,4 +1,4 @@
-;; Elmpa package manager
+;;Package manager
 (require 'package) 
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/"))
@@ -28,7 +28,7 @@
  '(exec-path-from-shell-check-startup-files nil)
  '(exec-path-from-shell-variables
    (quote
-	("PATH" "GOROOT" "GOPATH")))
+	("PATH" "GOROOT" "GOPATH" "GEM_HOME")))
  '(magit-log-arguments (quote ("--graph" "--color" "--decorate" "-n256")))
  '(gofmt-command "goimports")
  '(helm-gtags-auto-update t)
@@ -332,9 +332,12 @@
 
 ;; Yasnippet
 (require 'yasnippet)
-(setq yas/root-directory "~/.emacs.d/yasnippet-snippets")
+(setq yas-snippet-dirs
+      '("~/.emacs.d/yasnippet-snippets"))
 (yas-reload-all)
 (add-hook 'go-mode-hook #'yas-minor-mode)
+(add-hook 'ruby-mode-hook #'yas-minor-mode)
+(add-hook 'python-mode-hook #'yas-minor-mode)
 
 ;; Ruby
 (rvm-use-default)
@@ -352,6 +355,12 @@
 		  (lambda ()
 			(font-lock-add-keywords nil
 									'(("\\<\\(FIXME\\|TODO\\|BUG\\):" 1 font-lock-warning-face t)))))
+(add-hook 'ruby-mode-hook
+		  (lambda()
+			(setq tags-add-tables t)
+			(setq tags-table-list
+				  (list (concat (getenv "GEM_HOME") "/gems")))
+			))
 
 (evil-leader/set-key-for-mode 'robe-mode
   "gm" 'robe-jump-to-module
