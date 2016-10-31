@@ -19,22 +19,32 @@
  '(company-minimum-prefix-length 1)
  '(company-show-numbers t)
  '(company-tooltip-align-annotations t)
+ '(company-selection-wrap-around t)
  '(delete-selection-mode t)
  '(evil-search-module (quote evil-search))
  '(exec-path
    (quote
-	("/usr/bin" "/bin" "/usr/sbin" "/sbin" "/Applications/Emacs.app/Contents/MacOS/libexec" "/Applications/Emacs.app/Contents/MacOS/bin" "/Users/cosmin/go/bin" "/usr/local/go/bin")))
+	("/usr/bin" "/bin" "/usr/sbin" "/sbin"  "~/go/bin" "/usr/local/go/bin" "/usr/lib/go/bin")))
+ '(exec-path-from-shell-check-startup-files nil)
+ '(exec-path-from-shell-variables
+   (quote
+	("PATH" "GOROOT" "GOPATH")))
+ '(magit-log-arguments (quote ("--graph" "--color" "--decorate" "-n256")))
  '(gofmt-command "goimports")
  '(helm-gtags-auto-update t)
  '(helm-gtags-ignore-case t)
  '(helm-gtags-path-style (quote relative))
+ '(jedi:use-shortcuts t)
  '(ns-command-modifier (quote control))
  '(ns-control-modifier (quote super))
  '(package-selected-packages
    (quote
-	(linum-relative relative-line-numbers hydra evil-search-highlight-persist evil-surround evil-org evil-magit evil-visual-replace evil ob-typescript tide tss typescript-mode smooth-scrolling elpy jedi protobuf-mode yaml-mode web-mode web textmate switch-window serverspec rvm rustfmt ruby-tools ruby-refactor ruby-interpolation ruby-end ruby-electric ruby-dev ruby-block ruby-additional rspec-mode rsense robe real-auto-save rake racer puppetfile-mode puppet-mode projectile-speedbar projectile-codesearch popwin popup-kill-ring org-repo-todo neotree monokai-theme markdown-mode+ magit-topgit magit-gitflow magit-find-file latex-preview-pane latex-extra helm-swoop helm-rubygems-org helm-robe helm-projectile helm-gtags helm-go-package helm-git-grep helm-git helm-flyspell helm-flymake helm-flycheck helm-company helm-anything helm-ag-r helm-ag helm-ad goto-last-change gotest go-stacktracer go-snippets go-projectile go-errcheck go-complete go-autocomplete git fuzzy-match flymake-yaml flymake-ruby flymake-puppet flycheck-rust flycheck-pos-tip fixmee finder+ find-things-fast find-file-in-repository find-dired+ files+ exec-path-from-shell erlang emr dockerfile-mode docker dired+ diffview company-web company-restclient company-racer company-quickhelp company-jedi company-inf-ruby cargo bundler buffer-move aggressive-indent ac-inf-ruby)))
- '(racer-cmd "/Users/cosmin/.cargo/bin/racer" t)
+	(enh-ruby-mode go-last-chagne markup markdown-toc markdown-mode+ rw-ispell rw-hunspell function-args rust-mode tern js-doc js2-closure ac-js2 js2-refactor js2-mode pylint py-autopep8 linum-relative relative-line-numbers hydra evil-search-highlight-persist evil-smartparens evil-args evil-surround evil-org evil-magit evil-visual-replace evil ob-typescript tide tss typescript-mode smooth-scrolling elpy jedi protobuf-mode yaml-mode web-mode web textmate switch-window serverspec rvm rustfmt eruby-mode ruby-tools ruby-refactor ruby-interpolation ruby-end ruby-electric ruby-dev ruby-block ruby-additional rspec-mode rsense robe real-auto-save rake racer puppetfile-mode puppet-mode projectile-speedbar projectile-codesearch popwin popup-kill-ring org-repo-todo neotree monokai-theme markdown-mode+ magit-topgit magit-gitflow magit-find-file latex-preview-pane latex-extra helm-swoop helm-rubygems-org helm-robe helm-projectile helm-gtags helm-go-package helm-ispell helm-git-grep helm-git helm-flyspell helm-flymake helm-flycheck helm-company helm-anything helm-ag-r helm-ag helm-ad goto-last-change gotest go-stacktracer go-snippets go-projectile go-errcheck go-complete go-autocomplete git fuzzy-match flymake-yaml flymake-ruby flymake-puppet flycheck-rust flycheck-json flycheck-go flycheck-pos-tip fixmee finder+ find-things-fast find-file-in-repository find-dired+ files+ exec-path-from-shell erlang emr dockerfile-mode docker dired+ diffview company-web company-restclient company-racer company-quickhelp company-jedi company-inf-ruby company-go cargo bundler buffer-move aggressive-indent ac-inf-ruby ac-html ac-helm)))
+ '(racer-cmd "~/.cargo/bin/racer" t)
  '(safe-local-variable-values (quote ((c-indent-level . 8))))
+ '(puppet-lint-command
+   "puppet-lint --with-context --no-autoloader_layout-check --log-format \"%{path}:%{line}: %{kind}: %{message} (%{check})\"")
+ '(restclient-log-request t)
  '(tab-width 4)
  '(textmate-mode t))
 
@@ -100,7 +110,17 @@
 (add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
 
 ;; Fly spell 
+(setq ispell-program-name "hunspell")
+(setq ispell-local-dictionary "en_US")
+(setq ispell-local-dictionary-alist
+      '(("en_US" "[[:alpha:]]" "[^[:alpha:]]" "[']" nil nil nil utf-8)))
+
+(add-hook 'text-mode-hook 'flyspell-mode)
+(add-hook 'prog-mode-hook 'flyspell-prog-mode)
 (global-set-key (kbd "<f6>") 'flyspell-mode)
+(eval-after-load "flyspell"
+  '(define-key flyspell-mode-map (kbd "C-;") 'helm-flyspell-correct))
+(global-set-key (kbd "C-M-w") 'flyspell-auto-correct-previous-word)
 
 ;; Textmate 
 (textmate-mode)
@@ -108,25 +128,70 @@
 ;; imenu
 (global-set-key (kbd "s-i") 'imenu)
 
+;;; TLS configuration
+(defun gnutls-available-p ()
+  "Function redefined in order not to use built-in GnuTLS support"
+  nil)
+
+;; Auto-save buffer
+(defun save-buffer-if-visiting-file (&optional args)
+  "Save the current buffer only if it is visiting a file"
+  (interactive)
+  (if (and (buffer-file-name) (buffer-modified-p))
+      (save-buffer args)))
+(add-hook 'auto-save-hook 'save-buffer-if-visiting-file)
+(setq auto-save-interval 1
+      auto-save-timeout 1)
+
+;; Rename file in buffer
+(defun rename-file-and-buffer (new-name)
+  "Renames both current buffer and file it's visiting to NEW-NAME."
+  (interactive "sNew name: ")
+  (let ((name (buffer-name))
+        (filename (buffer-file-name)))
+    (if (not filename)
+        (message "Buffer '%s' is not visiting a file!" name)
+      (if (get-buffer new-name)
+          (message "A buffer named '%s' already exists!" new-name)
+        (progn
+          (rename-file name new-name 1)
+          (rename-buffer new-name)
+          (set-visited-file-name new-name)
+          (set-buffer-modified-p nil))))))
+
+(defun show-file-name ()
+ "Show the full path file name in the minibuffer."
+  (interactive)
+  (message (buffer-file-name)))
+
 ;; Evil mode
 (setq evil-want-C-u-scroll t)
 (require 'evil)
 (evil-mode 1)
 (require 'evil-surround)
 (global-evil-surround-mode 1)
-
+(require 'evil-magit)
 (global-evil-leader-mode)
 (evil-leader/set-leader ",")
 (evil-leader/set-key
   "b" 'switch-to-buffer
   "e" 'find-file
   "f" 'find-name-dired
-  "r" 'find-file-in-repository
+  "d" 'find-file-in-repository
   "k" 'kill-buffer
-  "," 'goto-last-change
+  "q" 'evil-quit
   "n" 'neotree-toggle
+  "m" 'magit-status
+  "r" 'rename-file-and-buffer
+  "w" 'switch-window
+  "," 'goto-last-change
+  "%" 'show-file-name
   "cl" 'comment-or-uncomment-region-or-line
-  "cr" 'comment-or-uncomment-region)
+  "cr" 'comment-or-uncomment-region
+  "pp" 'helm-projectile-switch-project
+  "pf" 'helm-projectile
+  "ps" 'helm-projectile-ag
+  "pa" 'helm-projectile-find-file-in-known-projects)
 
 ;; NeoTree
 (setq neo-smart-open t)
@@ -135,8 +200,15 @@
 			(define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)
 			(define-key evil-normal-state-local-map (kbd "SPC") 'neotree-enter)
 			(define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
-			(define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)))
-(require 'evil-magit)
+;; ESC ALL THE THINGS = <C-g>
+(define-key evil-normal-state-map [escape] 'keyboard-quit)
+(define-key evil-visual-state-map [escape] 'keyboard-quit)
+(define-key minibuffer-local-map [escape] 'minibuffer-keyboard-quit)
+(define-key minibuffer-local-ns-map [escape] 'minibuffer-keyboard-quit)
+(define-key minibuffer-local-completion-map [escape] 'minibuffer-keyboard-quit)
+(define-key minibuffer-local-must-match-map [escape] 'minibuffer-keyboard-quit)
+(define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
+		(define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)))
 
 ;; Scrolling
 (require 'smooth-scrolling)
@@ -161,7 +233,6 @@
 
 ;; Switch window
 (require 'switch-window)
-(global-set-key (kbd "C-x o") 'switch-window)
 
 ;; Popup window manager
 (require 'popwin)
@@ -190,7 +261,7 @@
       helm-buffers-fuzzy-matching            t
       helm-ff-auto-update-initial-value      t)
 (autoload 'helm-descbinds      "helm-descbinds" t)
-(autoload 'helm-eshell-history "helm-eshell"    t)
+(autoload 'helm-ehell-history "helm-eshell"    t)
 (autoload 'helm-esh-pcomplete  "helm-eshell"    t)
 (add-hook 'eshell-mode-hook
           #'(lambda ()
@@ -203,7 +274,7 @@
 (add-hook 'c++-mode-hook 'helm-gtags-mode)
 (add-hook 'asm-mode-hook 'helm-gtags-mode)
 
-(global-set-key (kbd "M-x")     #'helm-M-x)
+(global-set-key (kbd "M-x") #'helm-M-x)
 (evil-leader/set-key
   "ha" 'helm-apropos
   "hi" 'helm-info-emacs
@@ -248,9 +319,6 @@
 			(org-today (&rest r) (time-to-days date)))
     (org-todo)))
 
-;; Magit
-(global-set-key (kbd "C-c g") 'magit-status)
-
 ;; Ediff
 (defmacro csetq (variable value)
   `(funcall (or (get ',variable 'custom-set)
@@ -270,17 +338,38 @@
 
 ;; Ruby
 (rvm-use-default)
+(add-to-list 'auto-mode-alist
+			 '("\\.\\(?:cap\\|gemspec\\|irbrc\\|gemrc\\|rake\\|rb\\|ru\\|thor\\)\\'" . ruby-mode))
+(add-to-list 'auto-mode-alist
+			 '("\\(?:Brewfile\\|Capfile\\|Gemfile\\(?:\\.[a-zA-Z0-9._-]+\\)?\\|[rR]akefile\\)\\'" . ruby-mode))
+(add-hook 'ruby-mode-hook 'aggressive-indent-mode)
 (add-hook 'ruby-mode-hook 'ruby-tools-mode)
 (add-hook 'ruby-mode-hook 'ruby-refactor-mode-launch)
 (add-hook 'ruby-mode-hook 'robe-mode)
 (add-hook 'robe-mode-hook 'ac-robe-setup)
+(add-hook 'ruby-mode-hook 'fixmee-mode)
+(add-hook 'ruby-mode-hook
+		  (lambda ()
+			(font-lock-add-keywords nil
+									'(("\\<\\(FIXME\\|TODO\\|BUG\\):" 1 font-lock-warning-face t)))))
+
 (evil-leader/set-key-for-mode 'robe-mode
   "gm" 'robe-jump-to-module
+  "s"  '(lambda()
+		  (interactive)
+		  (inf-ruby)
+		  (robe-strart))
   )
 
 ;; Python
 (add-hook 'python-mode-hook 'jedi:setup)
 (setq jedi:complete-on-dot t)
+
+(evil-leader/set-key-for-mode 'python-mode
+  "gd" 'jedi:goto-definition
+  "go" 'jedi:show-doc
+  "gf" 'jedi:get-in-function-call
+  )
 
 ;; C/C++
 (evil-leader/set-key-for-mode 'c-mode
@@ -377,3 +466,10 @@
 			 (define-key evil-normal-state-map (kbd "C-t") 'pop-tag-mark)
 			 (local-set-key (kbd "TAB") #'racer-complete-or-indent)
 			 (local-set-key (kbd "C-c <tab>") #'rust-format-buffer)))
+
+;; Puppet
+(autoload 'puppet-mode "puppet-mode" "Major mode for editing puppet manifests")
+(add-to-list 'auto-mode-alist '("\\.pp$" . puppet-mode))
+
+;; Markdown
+(setq markdown-command "~/.emacs.d/bin/flavor.rb")
