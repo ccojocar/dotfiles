@@ -339,6 +339,10 @@
 (add-hook 'ruby-mode-hook #'yas-minor-mode)
 (add-hook 'python-mode-hook #'yas-minor-mode)
 
+;; Shell
+(global-set-key (kbd "<f5>") 'shell)
+(exec-path-from-shell-initialize)
+
 ;; Ruby
 (rvm-use-default)
 (add-to-list 'auto-mode-alist
