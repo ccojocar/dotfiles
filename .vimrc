@@ -51,7 +51,6 @@ Plug 'ekalinin/Dockerfile.vim', {'for' : 'Dockerfile'}
 Plug 'fatih/vim-nginx' , {'for' : 'nginx'}
 Plug 'corylanou/vim-present', {'for' : 'present'}
 Plug 'nvie/vim-flake8'
-Plug 'vim-utils/vim-alt-mappings'
 
 call plug#end()
 
