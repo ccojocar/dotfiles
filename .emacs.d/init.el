@@ -99,7 +99,7 @@
                        (if (not (minibufferp (current-buffer)))
 						   (auto-complete-mode 1))
                        ))
-(real-global-auto-complete-mode t)
+(run-with-idle-timer 2 nil (lambda () (real-global-auto-complete-mode t)))
 
 ;; Fix the ansi-color in compilation buffer
 (require 'ansi-color)
@@ -110,20 +110,18 @@
 (add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
 
 ;; Fly spell 
-(setq ispell-program-name "hunspell")
-(setq ispell-local-dictionary "en_US")
-(setq ispell-local-dictionary-alist
-      '(("en_US" "[[:alpha:]]" "[^[:alpha:]]" "[']" nil nil nil utf-8)))
-
 (add-hook 'text-mode-hook 'flyspell-mode)
 (add-hook 'prog-mode-hook 'flyspell-prog-mode)
 (global-set-key (kbd "<f6>") 'flyspell-mode)
-(eval-after-load "flyspell"
-  '(define-key flyspell-mode-map (kbd "C-;") 'helm-flyspell-correct))
-(global-set-key (kbd "C-M-w") 'flyspell-auto-correct-previous-word)
-
-;; Textmate 
-(textmate-mode)
+(eval-after-load 'flyspell-mode
+  (lambda()
+	(setq ispell-program-name "hunspell")
+	(setq ispell-local-dictionary "en_US")
+	(setq ispell-local-dictionary-alist
+		  '(("en_US" "[[:alpha:]]" "[^[:alpha:]]" "[']" nil nil nil utf-8)))
+	(define-key flyspell-mode-map (kbd "C-;") 'helm-flyspell-correct)
+	(define-key flyspell-mode-map (kbd "C-M-w") 'flyspell-auto-correct-previous-word)
+	))
 
 ;; imenu
 (global-set-key (kbd "s-i") 'imenu)
@@ -170,7 +168,7 @@
 (evil-mode 1)
 (require 'evil-surround)
 (global-evil-surround-mode 1)
-(require 'evil-magit)
+(eval-after-load 'magit '(require 'evil-magit))
 (global-evil-leader-mode)
 (evil-leader/set-leader ",")
 (evil-leader/set-key
@@ -275,6 +273,13 @@
 (add-hook 'c++-mode-hook 'helm-gtags-mode)
 (add-hook 'asm-mode-hook 'helm-gtags-mode)
 
+(eval-after-load 'helm-mode
+  (lambda()
+	(helm-projectile-on)
+	(define-key helm-map (kbd "C-j") 'helm-next-line)
+	(define-key helm-map (kbd "C-k") 'helm-previous-line)
+	))
+
 (global-set-key (kbd "M-x") #'helm-M-x)
 (evil-leader/set-key
   "ha" 'helm-apropos
@@ -288,8 +293,7 @@
   "hs" 'helm-swoop 
   "hg" 'helm-do-ag-this-file 
   )
-(define-key helm-map (kbd "C-j") 'helm-next-line)
-(define-key helm-map (kbd "C-k") 'helm-previous-line)
+
 (evil-leader/set-key-for-mode 'helm-gtags-mode
   "htt" 'helm-gtags-find-tag
   "htr" 'helm-gtags-find-rtag
@@ -303,8 +307,6 @@
 ;; Projectile
 (projectile-global-mode)
 (setq projectile-completion-system 'helm)
-(helm-projectile-on)
-(require 'go-projectile)
 
 ;; Org mode
 (define-key global-map "\C-ca" 'org-agenda)
@@ -335,7 +337,6 @@
 (require 'yasnippet)
 (setq yas-snippet-dirs
       '("~/.emacs.d/yasnippet-snippets"))
-(yas-reload-all)
 (add-hook 'go-mode-hook #'yas-minor-mode)
 (add-hook 'ruby-mode-hook #'yas-minor-mode)
 (add-hook 'python-mode-hook #'yas-minor-mode)
@@ -345,27 +346,26 @@
 (exec-path-from-shell-initialize)
 
 ;; Ruby
-(rvm-use-default)
+(eval-after-load 'ruby-mode '(rvm-use-default))
 (add-to-list 'auto-mode-alist
 			 '("\\.\\(?:cap\\|gemspec\\|irbrc\\|gemrc\\|rake\\|rb\\|ru\\|thor\\)\\'" . ruby-mode))
 (add-to-list 'auto-mode-alist
 			 '("\\(?:Brewfile\\|Capfile\\|Gemfile\\(?:\\.[a-zA-Z0-9._-]+\\)?\\|[rR]akefile\\)\\'" . ruby-mode))
-(add-hook 'ruby-mode-hook 'aggressive-indent-mode)
-(add-hook 'ruby-mode-hook 'ruby-tools-mode)
-(add-hook 'ruby-mode-hook 'ruby-refactor-mode-launch)
-(add-hook 'ruby-mode-hook 'robe-mode)
-(add-hook 'robe-mode-hook 'ac-robe-setup)
-(add-hook 'ruby-mode-hook 'fixmee-mode)
-(add-hook 'ruby-mode-hook
-		  (lambda ()
-			(font-lock-add-keywords nil
-									'(("\\<\\(FIXME\\|TODO\\|BUG\\):" 1 font-lock-warning-face t)))))
+
 (add-hook 'ruby-mode-hook
 		  (lambda()
+			(aggressive-indent-mode)
+			(ruby-tools-mode)
+			(ruby-refactor-mode-launch)
+			(robe-mode)
+			(fixmee-mode)
+			(font-lock-add-keywords nil
+									'(("\\<\\(FIXME\\|TODO\\|BUG\\):" 1 font-lock-warning-face t)))
 			(setq tags-add-tables t)
 			(setq tags-table-list
 				  (list (concat (getenv "GEM_HOME") "/gems")))
 			))
+(add-hook 'robe-mode-hook 'ac-robe-setup)
 
 (evil-leader/set-key-for-mode 'robe-mode
   "gm" 'robe-jump-to-module
@@ -396,25 +396,14 @@
 ;; Go
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
-(exec-path-from-shell-copy-env "GOPATH")
-(exec-path-from-shell-copy-env "GOROOT")
-(load "$GOPATH/src/github.com/dougm/goflymake/go-flycheck.el")
-(load "$GOPATH/src/golang.org/x/tools/cmd/guru/go-guru.el")
 
-(evil-leader/set-key-for-mode 'go-mode
-  "gd" 'godef-jump
-  "gf" 'gofmt
-  "gi" 'go-goto-imports
-  "go" 'godoc
-  "gu" 'go-remove-unused-imports
-  "gs" 'ff-find-other-file
-  "gr" 'go-rename
-  "gx" 'go-run
-  "gtf" 'go-test-current-file
-  "gtt" 'go-test-current-test
-  "gtp" 'go-test-current-project
-  "gtb" 'go-test-current-benchmark
-  )
+(eval-after-load 'go-mode
+  (lambda()
+	(exec-path-from-shell-copy-env "GOPATH")
+	(exec-path-from-shell-copy-env "GOROOT")
+	(load "$GOPATH/src/github.com/dougm/goflymake/go-flycheck.el")
+	(load "$GOPATH/src/golang.org/x/tools/cmd/guru/go-guru.el")
+	))
 
 (add-hook 'go-mode-hook
 		  (lambda()
@@ -426,6 +415,9 @@
 			(if (not (string-match "go" compile-command))
 				(set (make-local-variable 'compile-command)
 					 "go build -v && go test -v && go vet"))
+			
+			;; projectile
+			(require 'go-projectile)
 
 			;; company mode
 			(company-mode)
@@ -444,6 +436,21 @@
 			(define-key evil-normal-state-map (kbd "C-]") 'godef-jump)
 			(define-key evil-normal-state-map (kbd "C-t") 'pop-tag-mark)
 			))
+
+(evil-leader/set-key-for-mode 'go-mode
+  "gd" 'godef-jump
+  "gf" 'gofmt
+  "gi" 'go-goto-imports
+  "go" 'godoc
+  "gu" 'go-remove-unused-imports
+  "gs" 'ff-find-other-file
+  "gr" 'go-rename
+  "gx" 'go-run
+  "gtf" 'go-test-current-file
+  "gtt" 'go-test-current-test
+  "gtp" 'go-test-current-project
+  "gtb" 'go-test-current-benchmark
+  )
 
 ;; Rust
 (setq racer-cmd "~/.cargo/bin/racer")
@@ -487,3 +494,4 @@
 
 ;; Markdown
 (setq markdown-command "~/.emacs.d/bin/flavor.rb")
+
