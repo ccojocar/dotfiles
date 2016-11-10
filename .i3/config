@@ -40,6 +40,8 @@ floating_modifier $mod
 
 # kill focused window
 bindsym $mod+q kill
+bindsym Mod1+q kill
+bindsym Mod1+F4 kill
 
 # start dmenu (a program launcher)
 #-old-#bindsym $mod+d exec dmenu_run
@@ -49,7 +51,7 @@ bindsym $mod+d exec rofi -show run
 bindsym $mod+shift+d exec --no-startup-id xfce4-appfinder
 
 # list open windows to switch to
-bindsym $mod+Tab exec rofi -show window
+bindsym Mod1+Tab exec rofi -show window
 
 #-endnew-#
 # There also is the (new) i3-dmenu-desktop which only displays applications
