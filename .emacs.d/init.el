@@ -46,7 +46,8 @@
    "puppet-lint --with-context --no-autoloader_layout-check --log-format \"%{path}:%{line}: %{kind}: %{message} (%{check})\"")
  '(restclient-log-request t)
  '(tab-width 4)
- '(textmate-mode t))
+ '(textmate-mode t)
+ )
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -54,6 +55,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+;; Disable the scroll bar
+(scroll-bar-mode -1)
 
 ;; Color theme 
 (load-theme 'monokai t)
