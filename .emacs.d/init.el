@@ -39,7 +39,7 @@
  '(ns-control-modifier (quote super))
  '(package-selected-packages
    (quote
-	(enh-ruby-mode markup markdown-toc markdown-mode+ function-args rust-mode tern js-doc js2-closure ac-js2 js2-refactor js2-mode pylint py-autopep8 linum-relative relative-line-numbers hydra evil-search-highlight-persist evil-smartparens evil-args evil-surround evil-org evil-magit evil-visual-replace evil ob-typescript tide tss typescript-mode smooth-scrolling elpy jedi protobuf-mode yaml-mode web-mode web textmate switch-window serverspec rvm rustfmt ruby-tools ruby-refactor ruby-interpolation ruby-end ruby-electric ruby-dev ruby-block ruby-additional rspec-mode rsense robe real-auto-save rake racer puppet-mode projectile-speedbar projectile-codesearch popwin popup-kill-ring org-repo-todo neotree monokai-theme markdown-mode+ magit-topgit magit-gitflow magit-find-file latex-preview-pane latex-extra helm-swoop helm-rubygems-org helm-robe helm-projectile helm-gtags helm-go-package helm-ispell helm-git-grep helm-git helm-flyspell helm-flymake helm-flycheck helm-company helm-anything helm-ag-r helm-ag helm-ad goto-last-change gotest go-stacktracer go-snippets go-projectile go-errcheck go-complete go-autocomplete git fuzzy-match flymake-yaml flymake-ruby flymake-puppet flycheck-rust flycheck-pos-tip fixmee finder+ find-things-fast find-file-in-repository find-dired+ files+ exec-path-from-shell erlang emr dockerfile-mode docker dired+ diffview company-web company-restclient company-racer company-quickhelp company-jedi company-inf-ruby company-go cargo bundler buffer-move aggressive-indent ac-inf-ruby ac-html ac-helm)))
+	(grunt npm-mode tide typescript-mode enh-ruby-mode markup markdown-toc markdown-mode+ function-args rust-mode tern js-doc js2-closure ac-js2 js2-refactor js2-mode pylint py-autopep8 linum-relative relative-line-numbers hydra evil-search-highlight-persist evil-smartparens evil-args evil-surround evil-org evil-magit evil-visual-replace evil smooth-scrolling elpy jedi protobuf-mode yaml-mode web-mode web textmate switch-window serverspec rvm rustfmt ruby-tools ruby-refactor ruby-interpolation ruby-end ruby-electric ruby-dev ruby-block ruby-additional rspec-mode rsense robe real-auto-save rake racer puppet-mode projectile-speedbar projectile-codesearch popwin popup-kill-ring org-repo-todo neotree monokai-theme markdown-mode+ magit-topgit magit-gitflow magit-find-file latex-preview-pane latex-extra helm-swoop helm-rubygems-org helm-robe helm-projectile helm-gtags helm-go-package helm-ispell helm-git-grep helm-git helm-flyspell helm-flymake helm-flycheck helm-company helm-anything helm-ag-r helm-ag helm-ad goto-last-change gotest go-stacktracer go-snippets go-projectile go-errcheck go-complete go-autocomplete git fuzzy-match flymake-yaml flymake-ruby flymake-puppet flycheck-rust flycheck-pos-tip fixmee finder+ find-things-fast find-file-in-repository find-dired+ files+ exec-path-from-shell erlang emr dockerfile-mode docker dired+ diffview company-web company-restclient company-racer company-quickhelp company-jedi company-inf-ruby company-go cargo bundler buffer-move aggressive-indent ac-inf-ruby ac-html ac-helm)))
  '(racer-cmd "~/.cargo/bin/racer" t)
  '(safe-local-variable-values (quote ((c-indent-level . 8))))
  '(puppet-lint-command
@@ -58,6 +58,7 @@
 
 ;; Disable the scroll bar
 (scroll-bar-mode -1)
+(set-default-font "Monaco 14")
 
 ;; Color theme 
 (load-theme 'monokai t)
@@ -491,6 +492,64 @@
 			 (define-key evil-normal-state-map (kbd "C-t") 'pop-tag-mark)
 			 (local-set-key (kbd "TAB") #'racer-complete-or-indent)
 			 (local-set-key (kbd "C-c <tab>") #'rust-format-buffer)))
+
+;; Typescript/JavaScript
+(defun setup-tide-mode ()
+  (interactive)
+  (setq tide-tsserver-executable "node_modules/typescript/bin/tsserver")
+  (tide-setup)
+  (flycheck-mode +1)
+  (setq flycheck-check-syntax-automatically '(save mode-enabled))
+  (eldoc-mode +1)
+  (tide-hl-identifier-mode +1)
+  (setq tide-format-options '(:insertSpaceAfterFunctionKeywordForAnonymousFunctions t :placeOpenBraceOnNewLineForFunctions nil))
+  (company-mode +1))
+
+(add-hook 'typescript-mode-hook
+		  '(lambda ()
+			 (setup-tide-mode)
+			 (tide-mode)
+			 (npm-mode)
+			 ;; Support for editing tsx file			 
+			 (require 'web-mode)
+			 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
+			 (add-hook 'web-mode-hook
+					   (lambda ()
+						 (when (string-equal "tsx" (file-name-extension buffer-file-name))
+						   (setup-tide-mode))))
+			 ;; key bindings 
+			 (define-key evil-normal-state-map (kbd "C-]") 'tide-jump-to-definition)
+			 (define-key evil-normal-state-map (kbd "C-t") 'tide-jump-back)
+			 ))
+
+(add-hook 'js2-mode-hook 
+		  '(lambda ()
+			 (setup-tide-mode)
+			 (tide-mode)
+			 (npm-mode)
+			 ;; Support for editing jsx file
+			 (require 'web-mode)
+			 (add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
+			 (add-hook 'web-mode-hook
+					   (lambda ()
+						 (when (string-equal "jsx" (file-name-extension buffer-file-name))
+						   (setup-tide-mode))))
+			 ;; key bindings 
+			 (define-key evil-normal-state-map (kbd "C-]") 'tide-jump-to-definition)
+			 (define-key evil-normal-state-map (kbd "C-t") 'tide-jump-back)
+			 ))
+
+(evil-leader/set-key-for-mode 'go-mode
+  "gd" 'tide-jump-to-definiton
+  "go" 'tide-documentation-at-point
+  "gr" 'tide-rename-symbol
+  "gs" 'tide-references
+  "gx" 'tide-compile-file  
+  "gn" 'tide-find-next-reference
+  "gp" 'tide-fine-previous-reference
+  "gen" 'tide-fine-next-error
+  "gep" 'tide-fine-previous-error
+  )
 
 ;; Puppet
 (autoload 'puppet-mode "puppet-mode" "Major mode for editing puppet manifests")
