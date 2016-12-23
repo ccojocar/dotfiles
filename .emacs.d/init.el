@@ -381,8 +381,15 @@
   )
 
 ;; Python
-(add-hook 'python-mode-hook 'jedi:setup)
-(setq jedi:complete-on-dot t)
+(add-hook 'python-mode-hook
+		  (lambda()
+			(setq jedi:complete-on-dot t)
+			(jedi:setup)
+
+			;; key bindings 
+			(define-key evil-normal-state-map (kbd "C-]") 'jedi:goto-definition)
+			(define-key evil-normal-state-map (kbd "C-t") 'pop-tag-mark)
+			))
 
 (evil-leader/set-key-for-mode 'python-mode
   "gd" 'jedi:goto-definition
