@@ -359,6 +359,9 @@
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
+(add-to-list 'auto-mode-alist '("\\.js\\'" . typescript-mode))
+(add-to-list 'auto-mode-alist '("\\.jsx\\'" . typescript-mode))
 
 ;; Ruby
 (eval-after-load 'ruby-mode '(rvm-use-default))
@@ -513,7 +516,7 @@
 ;; Typescript/JavaScript
 (defun setup-tide-mode ()
   (interactive)
-  (setq tide-tsserver-executable "node_modules/typescript/bin/tsserver")
+  (setq tide-tsserver-executable "~/tools/node_modules/typescript/bin/tsserver")
   (tide-setup)
   (flycheck-mode +1)
   (setq flycheck-check-syntax-automatically '(save mode-enabled))
