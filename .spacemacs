@@ -31,7 +31,6 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-     lua
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -39,6 +38,9 @@ values."
      ;; ----------------------------------------------------------------
      yaml
      html
+     (c-c++ :variables
+            c-c++-default-mode-for-headers 'c++-mode
+            c-c++-enable-clang-support t)
      (ruby :variables
            ruby-version-manager 'rvm
            ruby-test-runner 'rspec
@@ -60,7 +62,9 @@ values."
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
+     lua
      emacs-lisp
+     docker
      helm
      auto-completion
      better-defaults
