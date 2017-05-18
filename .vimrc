@@ -51,6 +51,7 @@ Plug 'ekalinin/Dockerfile.vim', {'for' : 'Dockerfile'}
 Plug 'fatih/vim-nginx' , {'for' : 'nginx'}
 Plug 'corylanou/vim-present', {'for' : 'present'}
 Plug 'nvie/vim-flake8'
+Plug 'vim-utils/vim-alt-mappings'
 
 call plug#end()
 
@@ -207,19 +208,20 @@ augroup END
 " This comes first, because we have mappings that depend on leader
 " With a map leader it's possible to do extra key combinations
 " i.e: <leader>w saves the current file
-let mapleader = ","
+let mapleader = " " 
 
 " Some useful quickfix shortcuts for quickfix
 map <C-n> :cn<CR>
 map <C-p> :cp<CR>
 nnoremap <leader>a :cclose<CR>
 
+" Error navigation 
+nnoremap <leader>en :lnext<CR>
+nnoremap <leader>ep :lprev<CR>
+
 " Fast saving
 nnoremap <leader>w :w!<cr>
 nnoremap <silent> <leader>q :q!<CR>
-
-" Center the screen
-nnoremap <space> zz
 
 " Remove search highlight
 nnoremap <leader><space> :nohlsearch<CR>
@@ -696,6 +698,10 @@ nnoremap <leader>gr :YcmCompleter GoToReferences<CR>
 nnoremap <leader>go :YcmCompleter GetDoc<CR>
 
 " ================= Python ===========================================
+let g:ycm_python_binary_path = $HOME.'/virtualenv/bin/python'
+let g:pep8_ignore="E501,W601"
+let g:syntastic_python_flake8_post_args='--ignore=E501,E128,E225,E251,W503'
+nnoremap <leader>en :lnext<CR>
 au BufNewFile,BufRead *.py.erb 
       \ set filetype=python |
       \ set tabstop=4 |
