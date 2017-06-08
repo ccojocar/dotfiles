@@ -48,11 +48,10 @@ values."
              python-test-runner 'pytest
              python-enable-yapf-format-on-save t)
      (go :variables
-         flycheck-check-syntax-automatically '(mode-enable save)
+         flycheck-check-syntax-automatically '(idle-change mode-enable save)
          go-use-gometalinter t
+         flycheck-gometalinter-fast t
          flycheck-gometalinter-test t
-         flycheck-gometalinter-concurrency 4
-         flycheck-gometalinter-disable-linters '("gotype" "gocyclo")
          flycheck-gometalinter-deadline "30s")
      java
      javascript
