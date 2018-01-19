@@ -809,17 +809,5 @@
     "team.showWelcomeMessage": false,
     "workbench.startupEditor": "newUntitledFile",
     "workbench.activityBar.visible": false,
-    "window.menuBarVisibility": "toggle",
-    "mssql.connections": [
-        {
-            "server": "q5kc907moe.database.windows.net",
-            "database": "admindb",
-            "authenticationType": "SqlLogin",
-            "user": "sindbad1",
-            "password": "",
-            "emptyPasswordInput": false,
-            "savePassword": true,
-            "profileName": "DEV1-AdminDB"
-        }
-    ]
+    "window.menuBarVisibility": "toggle"
 }
