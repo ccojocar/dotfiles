@@ -9,6 +9,12 @@
     "vim.useSystemClipboard": true,
     "vim.useCtrlKeys": true,
     "vim.hlsearch": true,
+    "vim.leader": "<space>",
+    "vim.handleKeys": {
+        "<C-d>": true,
+        "<C-a>": false,
+        "<C-f>": false
+    },
     "vim.insertModeKeyBindings": [
         {
             "before": [
@@ -21,6 +27,18 @@
         }
     ],
     "vim.otherModesKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<C-t>"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.navigateBack",
+                    "args": []
+               }
+            ]
+        },
         {
             "before": [
                 "<leader>",
@@ -124,42 +142,6 @@
         },
         {
             "before": [
-                "<C-n>"
-            ],
-            "after": [],
-            "commands": [
-                {
-                    "command": ":nohl"
-                }
-            ]
-        },
-        {
-            "before": [
-                "leader",
-                "w"
-            ],
-            "after": [],
-            "commands": [
-                {
-                    "command": "workbench.action.files.save",
-                    "args": []
-                }
-            ]
-        },
-        {
-            "before": [
-                "<C-t>"
-            ],
-            "after": [],
-            "commands": [
-                {
-                    "command": "workbench.action.navigateBack",
-                    "args": []
-                }
-            ]
-        },
-        {
-            "before": [
                 "<leader>",
                 "b",
                 "b"
@@ -217,20 +199,6 @@
         {
             "before": [
                 "<leader>",
-                "e",
-                "l"
-            ],
-            "after": [],
-            "commands": [
-                {
-                    "command": "workbench.actions.view.problems",
-                    "args": []
-                }
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
                 "c",
                 "l"
             ],
@@ -238,6 +206,20 @@
             "commands": [
                 {
                     "command": "editor.action.commentLine",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "e",
+                "l"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.actions.view.problems",
                     "args": []
                 }
             ]
@@ -471,12 +453,12 @@
             "before": [
                 "<leader>",
                 "p",
-                "e"
+                "c"
             ],
             "after": [],
             "commands": [
                 {
-                    "command": "workbench.view.explorer",
+                    "command": "workbench.action.closeFolder",
                     "args": []
                 }
             ]
@@ -485,12 +467,12 @@
             "before": [
                 "<leader>",
                 "p",
-                "t"
+                "e"
             ],
             "after": [],
             "commands": [
                 {
-                    "command": "workbench.action.toggleSidebarVisibility",
+                    "command": "workbench.view.explorer",
                     "args": []
                 }
             ]
@@ -527,12 +509,12 @@
             "before": [
                 "<leader>",
                 "p",
-                "c"
+                "t"
             ],
             "after": [],
             "commands": [
                 {
-                    "command": "workbench.action.closeFolder",
+                    "command": "workbench.action.toggleSidebarVisibility",
                     "args": []
                 }
             ]
@@ -658,7 +640,7 @@
             "after": [],
             "commands": [
                 {
-                    "command": "workbench.action.toggleActivityBarVisibility",
+                   "command": "workbench.action.toggleActivityBarVisibility",
                     "args": []
                 }
             ]
@@ -801,11 +783,6 @@
             ]
         }
     ],
-    "vim.leader": "<space>",
-    "vim.handleKeys": {
-        "<C-a>": false,
-        "<C-f>": false
-    },
     "team.showWelcomeMessage": false,
     "workbench.startupEditor": "newUntitledFile",
     "workbench.activityBar.visible": false,
