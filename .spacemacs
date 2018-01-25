@@ -69,6 +69,7 @@ values."
      auto-completion
      better-defaults
      git
+     github
      (markdown :variables markdown-live-preview-engine 'vmd)
      (spell-checking :variables ispell-program-name "aspell")
      syntax-checking
