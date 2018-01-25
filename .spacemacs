@@ -31,36 +31,33 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-     ;; ----------------------------------------------------------------
-     ;; Example of useful layers you may want to use right away.
-     ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
-     ;; <M-m f e R> (Emacs style) to install them.
-     ;; ----------------------------------------------------------------
+     csv
+     docker
      yaml
      html
+     java
+     javascript
      (c-c++ :variables
             c-c++-default-mode-for-headers 'c++-mode
             c-c++-enable-clang-support t)
-     (ruby :variables
-           ruby-version-manager 'rvm
-           ruby-test-runner 'rspec
-           ruby-enable-enh-ruby-mode t)
-     ruby-on-rails
-     (puppet :variables
-           puppet-lint-command "puppet-lint --with-context --no-autoloader_layout-check --log-format \"%{path}:%{line}: %{kind}: %{message} (%{check})\"")
-     (python :variables
-             python-test-runner 'pytest
-             python-enable-yapf-format-on-save t)
      (go :variables
          flycheck-check-syntax-automatically '(idle-change mode-enable save)
          go-use-gometalinter t
          flycheck-gometalinter-fast t
          flycheck-gometalinter-test t
          flycheck-gometalinter-deadline "30s")
+     (ruby :variables
+           ruby-version-manager 'rvm
+           ruby-test-runner 'rspec
+           ruby-enable-enh-ruby-mode t)
+     ruby-on-rails
+     (puppet :variables
+             puppet-lint-command "puppet-lint --with-context --no-autoloader_layout-check --log-format \"%{path}:%{line}: %{kind}: %{message} (%{check})\"")
+     (python :variables
+             python-test-runner 'pytest
+             python-enable-yapf-format-on-save t)
      (rust :variables
            rust-format-on-save t)
-     java
-     javascript
      (typescript :variables
                  typescript-fmt-on-save t
                  typescript-fmt-tool 'typescript-formatter)
@@ -68,7 +65,6 @@ values."
             shell-default-height 30
             shell-default-position 'bottom)
      emacs-lisp
-     docker
      helm
      auto-completion
      better-defaults
