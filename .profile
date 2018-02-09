@@ -44,23 +44,9 @@ export PATH=$PATH:$HOME/bin
 # Docker
 alias docker='docker --tls'
 alias docker_cleanup_exited='docker rm -v $(docker ps -a -q -f status=exited)'
-alias dev-dockermeister='bundle exec bin/dockermeister'
-# export DOCKER_HOST=tcp://cs-us1-dse1-docker.cloudapp.net:2376
+alias minikube_docker='eval $(minikube docker-env)'
 # export DOCKER_CERT_PATH=$HOME/.docker/
 # export DOCKER_SSL_VERIFY=false
-# export DOCKER_API_VERSION=1.22
-
-# Docker swarm
-export DOCKER_HOST=tcp://cs-us1-dse1-swarm.cloudapp.net:2376
-export DOCKER_SSL_VERIFY=false
-export DOCKER_CERT_PATH=$HOME/.docker/swarm
-export DOCKER_API_VERSION=1.22
-
-# Local docker host
-# export DOCKER_HOST=tcp://127.0.0.1:2376
-# export DOCKER_SSL_VERIFY=false
-# export DOCKER_API_VERSION=1.21
-# unset DOCKER_CERT_PATH
 
 # Git branch in comman line
 function parse_git_branch () {
