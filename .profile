@@ -61,8 +61,10 @@ NO_COLOR="\[\033[0m\]"
 PS1="$GREEN\u@\h$NO_COLOR:\W$YELLOW\$(parse_git_branch)$NO_COLOR> "
 
 # Go
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+export PATH="$PATH":$GOROOT/bin
 
 # Maven
 alias mvnFast='mvn -DskipTests=true -DskipJavadoc=true -Dgwt.compiler.localWorkers=3 -P dev -T 2'
