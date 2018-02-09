@@ -21,8 +21,12 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
+# YoubiKey configuration for ssh key
+export SSH_AUTH_SOCK="$HOME/.gnupg/S.gpg-agent.ssh"
+gpg-connect-agent updatestartuptty /bye
+
 # SSH
-eval `keychain --eval --agents ssh ~/.ssh/cosmc_rsa`
+# eval `keychain --eval --agents ssh ~/.ssh/cosmc_rsa`
 
 # GVM (go managed installations)
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
