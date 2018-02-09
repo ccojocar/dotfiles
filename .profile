@@ -73,6 +73,9 @@ export PATH="$PATH":$GOROOT/bin
 # Ctags
 alias t='ctags -R --c++-kinds=+p --fields=+iaS --extra=+q `find . -name "*.c" -o -name "*.cc" -o -name "*.cpp" -o name "*.h" -o -name "*.hpp"`'
 
+# Python
+alias pydb='python -m pudb.run'
+
 # Maven
 alias mvnFast='mvn -DskipTests=true -DskipJavadoc=true -Dgwt.compiler.localWorkers=3 -P dev -T 2'
 alias mvnFastest='mvn -DskipDebianPackaging=true -Dsindbad.profile=dev -DskipJavadoc=true -DskipTests=true -Dgwt.compiler.localWorkers=3 -P dev -T 2'
