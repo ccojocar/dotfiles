@@ -82,12 +82,6 @@ export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 export JAVA_HOME="$(jenv javahome)"
 
-# JMeter
-export PATH="$PATH:$HOME/tools/jmeter/current/bin"
-
-# Cargo
-export PATH="$PATH:$HOME/.cargo/bin"
-
 # RVM
 #export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 
