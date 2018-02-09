@@ -87,8 +87,6 @@ eval "$(jenv init -)"
 export JAVA_HOME="$(jenv javahome)"
 
 # RVM
-#export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
-
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # Helper functions for Azure KeyVault
