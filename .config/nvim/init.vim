@@ -179,8 +179,11 @@ noremap <Left> <NOP>
 noremap <Right> <NOP>
 
 " Move between buffers with Shift + arrow key...
-nnoremap <S-Left> :bprevious<cr>
-nnoremap <S-Right> :bnext<cr>
+nnoremap <leader>p :bprevious<cr>
+nnoremap <leader>n :bnext<cr>
+
+" Browse old files
+nnoremap <leader>r :browse oldfiles<cr>
 
 " ... but skip the quickfix when navigating
 augroup qf
@@ -497,19 +500,21 @@ au FileType go set softtabstop=4
 au FileType go set tabstop=4
 
 " Mappings
-au FileType go nmap <F9> :GoCoverageToggle -short<cr>
-au FileType go nmap <F10> :GoTest -short<cr>
-au FileType go nmap <F12> <Plug>(go-def)
+au FileType go nmap <leader>gb :GoBuild<cr>
+au FileType go nmap <leader>gt :GoTest -short<cr>
+au FileType go nmap <leader>gc :GoCoverageToggle -short<cr>
+au FileType go nmap <leader>gc <Plug>(go-coverage-toggle)
 au Filetype go nmap <leader>ga <Plug>(go-alternate-edit)
 au Filetype go nmap <leader>gah <Plug>(go-alternate-split)
 au Filetype go nmap <leader>gav <Plug>(go-alternate-vertical)
-au FileType go nmap <leader>gt :GoDeclsDir<cr>
-au FileType go nmap <leader>gc <Plug>(go-coverage-toggle)
+au FileType go nmap <leader>gdd :GoDeclsDir<cr>
 au FileType go nmap <leader>gd <Plug>(go-def)
 au FileType go nmap <leader>gdv <Plug>(go-def-vertical)
 au FileType go nmap <leader>gdh <Plug>(go-def-horizontal)
 au FileType go nmap <leader>gD <Plug>(go-doc)
 au FileType go nmap <leader>gDv <Plug>(go-doc-vertical)
+au FileType go nmap <leader>gr :GoReferrers<cr>
+au FileType go nmap <leader>gi :GoImplements<cr>
 
 " Run goimports when running gofmt
 let g:go_fmt_command = "goimports"
