@@ -105,4 +105,21 @@ export PATH="$PATH:$HOME/.cargo/bin"
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
+# Helper functions for Azure KeyVault
+find_secret() {
+	az keyvault secret list --vault-name $1 | jq -r --arg PATTERN "$2" '.[] | select(.contentType | . and test($PATTERN; "i")) | "Id: \(.id) \n\(.contentType)"'
+}
+
+get_secret() {
+	az keyvault secret show --vault-name $1 --name $2 | jq .value | sed -e 's/^"//' -e 's/"$//'
+}
+
+set_secret() {
+	az keyvault secret set --vault-name $1 --name $2 --value "${3}"
+}
+
+alias find-secret=find_secret
+alias get-secret=get_secret
+alias set-secret=set_secret
+
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
