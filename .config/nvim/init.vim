@@ -65,6 +65,7 @@ Plug 'kylef/apiblueprint.vim'
 Plug 'lifepillar/pgsql.vim'
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 Plug 'plasticboy/vim-markdown'
+Plug 'suan/vim-instant-markdown'
 Plug 'tclh123/vim-thrift'
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'zchee/deoplete-jedi'
