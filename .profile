@@ -28,9 +28,6 @@ gpg-connect-agent updatestartuptty /bye
 # SSH
 # eval `keychain --eval --agents ssh ~/.ssh/cosmc_rsa`
 
-# GVM (go managed installations)
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
-
 # Emacs
 export TERM=xterm-256color
 alias emacs='emacs -nw'
@@ -42,7 +39,7 @@ export EDITOR=vim
 export VIEWER=vim
 export PAGER=cat
 
-# Configure the local scripts in the path
+# Configure local scripts in path
 export PATH=$PATH:$HOME/bin
 
 # Docker
@@ -52,7 +49,7 @@ alias docker_cleanup_exited='docker rm -v $(docker ps -a -q -f status=exited)'
 alias docker_remove_all_containers='docker rm -f $(docker ps -a -q)'
 alias docker_remove_all_images='docker rmi -f $(docker images -q)'
 
-# Git branch in comman line
+# Git
 function parse_git_branch () {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
@@ -61,7 +58,6 @@ RED="\[\033[0;31m\]"
 YELLOW="\[\033[0;33m\]"
 GREEN="\[\033[0;32m\]"
 NO_COLOR="\[\033[0m\]"
-
 PS1="$GREEN\u@\h$NO_COLOR:\W$YELLOW\$(parse_git_branch)$NO_COLOR> "
 
 # Go
@@ -92,10 +88,7 @@ export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 export JAVA_HOME="$(jenv javahome)"
 
-# RVM
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
-# Helper functions for Azure KeyVault
+# Azure KeyVault
 find_secret() {
 	az keyvault secret list --vault-name $1 | jq -r --arg PATTERN "$2" '.[] | select(.contentType | . and test($PATTERN; "i")) | "Id: \(.id) \n\(.contentType)"'
 }
@@ -112,4 +105,5 @@ alias find-secret=find_secret
 alias get-secret=get_secret
 alias set-secret=set_secret
 
+# RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
