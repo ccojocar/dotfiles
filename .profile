@@ -47,10 +47,10 @@ export PATH=$PATH:$HOME/bin
 
 # Docker
 alias docker='docker --tls'
-alias docker_cleanup_exited='docker rm -v $(docker ps -a -q -f status=exited)'
 alias minikube_docker='eval $(minikube docker-env)'
-# export DOCKER_CERT_PATH=$HOME/.docker/
-# export DOCKER_SSL_VERIFY=false
+alias docker_cleanup_exited='docker rm -v $(docker ps -a -q -f status=exited)'
+alias docker_remove_all_containers='docker rm -f $(docker ps -a -q)'
+alias docker_remove_all_images='docker rmi -f $(docker images -q)'
 
 # Git branch in comman line
 function parse_git_branch () {
