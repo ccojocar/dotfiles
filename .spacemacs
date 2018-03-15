@@ -66,7 +66,8 @@ values."
             shell-default-position 'bottom)
      emacs-lisp
      helm
-     auto-completion
+     (auto-completion :variables
+                      yas-snippet-dirs '("~/.emacs.d/snippets"))
      better-defaults
      git
      github
