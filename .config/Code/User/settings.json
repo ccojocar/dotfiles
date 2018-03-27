@@ -3,6 +3,7 @@
     "editor.fontSize": 13,
     "editor.fontFamily": "monospace",
     "editor.lineNumbers": "off",
+    "diffEditor.renderSideBySide": false,
     "workbench.colorTheme": "Monokai",
     "vim.easymotion": true,
     "vim.incsearch": true,
@@ -795,5 +796,12 @@
     "team.showWelcomeMessage": false,
     "workbench.startupEditor": "newUntitledFile",
     "workbench.activityBar.visible": false,
-    "window.menuBarVisibility": "toggle"
+    "window.menuBarVisibility": "toggle",
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#005f5f",
+        "statusBar.noFolderBackground": "#005f5f",
+        "statusBar.debuggingBackground": "#005f5f"
+    },
+    "gitlens.keymap": "alternate",
+    "workbench.statusBar.visible": false
 }
