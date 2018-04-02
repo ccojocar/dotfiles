@@ -31,50 +31,48 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     (auto-completion :variables
+                      yas-snippet-dirs '("~/.emacs.d/snippets"))
+     better-defaults
      csv
-     docker
-     yaml
-     html
-     java
-     javascript
      (c-c++ :variables
             c-c++-default-mode-for-headers 'c++-mode
             c-c++-enable-clang-support t)
+     docker
+     emacs-lisp
+     git
+     github
      (go :variables
          flycheck-check-syntax-automatically '(idle-change mode-enable save)
          go-use-gometalinter t
          flycheck-gometalinter-fast t
          flycheck-gometalinter-test t
          flycheck-gometalinter-deadline "30s")
+     helm
+     html
+     java
+     javascript
+     (markdown :variables markdown-live-preview-engine 'vmd)
+     (python :variables
+             python-test-runner 'pytest
+             python-enable-yapf-format-on-save t)
      (ruby :variables
            ruby-version-manager 'rvm
            ruby-test-runner 'rspec
            ruby-enable-enh-ruby-mode t)
      ruby-on-rails
-     (puppet :variables
-             puppet-lint-command "puppet-lint --with-context --no-autoloader_layout-check --log-format \"%{path}:%{line}: %{kind}: %{message} (%{check})\"")
-     (python :variables
-             python-test-runner 'pytest
-             python-enable-yapf-format-on-save t)
      (rust :variables
            rust-format-on-save t)
+     (spell-checking :variables ispell-program-name "aspell")
+     syntax-checking
      (typescript :variables
                  typescript-fmt-on-save t
                  typescript-fmt-tool 'typescript-formatter)
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
-     emacs-lisp
-     helm
-     (auto-completion :variables
-                      yas-snippet-dirs '("~/.emacs.d/snippets"))
-     better-defaults
-     git
-     github
-     (markdown :variables markdown-live-preview-engine 'vmd)
-     (spell-checking :variables ispell-program-name "aspell")
-     syntax-checking
      version-control
+     yaml
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -322,7 +320,6 @@ before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   (setq exec-path-from-shell-check-startup-files nil)
   (setenv "SSH_AUTH_SOCK" "/run/user/1000/gnupg/S.gpg-agent.ssh")
-  )
   )
 
 
