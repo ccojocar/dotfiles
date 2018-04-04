@@ -50,24 +50,14 @@ values."
          flycheck-gometalinter-deadline "30s")
      helm
      html
-     java
-     javascript
      (markdown :variables markdown-live-preview-engine 'vmd)
      (python :variables
              python-test-runner 'pytest
              python-enable-yapf-format-on-save t)
-     (ruby :variables
-           ruby-version-manager 'rvm
-           ruby-test-runner 'rspec
-           ruby-enable-enh-ruby-mode t)
-     ruby-on-rails
      (rust :variables
            rust-format-on-save t)
      (spell-checking :variables ispell-program-name "aspell")
      syntax-checking
-     (typescript :variables
-                 typescript-fmt-on-save t
-                 typescript-fmt-tool 'typescript-formatter)
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
