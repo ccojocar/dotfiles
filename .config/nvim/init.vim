@@ -50,6 +50,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'vimwiki/vimwiki'
 Plug 'jreybert/vimagit'
+Plug 'bronson/vim-visual-star-search'
 
 " Language support
 Plug 'aklt/plantuml-syntax'
@@ -353,7 +354,7 @@ nnoremap <c-p> :FZF<cr>
 " Plugin: 'majutsushi/tagbar'
 "----------------------------------------------
 " Add shortcut for toggling the tag bar
-map <leader>tt :TagbarToggle<<cr>
+map <leader>tt :TagbarToggle<cr>
 nnoremap <F3> :TagbarToggle<cr>
 
 "----------------------------------------------
