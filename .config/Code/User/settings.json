@@ -392,12 +392,236 @@
             "before": [
                 "<leader>",
                 "g",
-                "s"
+                "b"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "git.branch",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "B"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "git.deleteBranch",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "c"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "git.commitAll",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "d"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "gitlens.diffWithPrevious",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "g"
             ],
             "after": [],
             "commands": [
                 {
                     "command": "workbench.view.scm",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "H"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "gitlens.showQuickFileHistory",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "h"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "gitlens.showQuickRepoHistory",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "k"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "git.cleanAll",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "l"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "gitlens.toggleCodeLens",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "s"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "gitlens.showQuickRepoStatus",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "S"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "git.stageAll",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "m"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "gitlens.toggleFileBlame",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "p"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "git.pushTo",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "r"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "git.pullRebase",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "q"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "gitlens.showQuickCommitFileDetails",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "x"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "git.unstageAll",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "/"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "gitlens.showCommitSearch",
                     "args": []
                 }
             ]
@@ -798,10 +1022,20 @@
     "workbench.activityBar.visible": false,
     "window.menuBarVisibility": "toggle",
     "workbench.colorCustomizations": {
-        "statusBar.background": "#005f5f",
-        "statusBar.noFolderBackground": "#005f5f",
-        "statusBar.debuggingBackground": "#005f5f"
+        "statusBar.background": "#005f87",
+        "statusBar.noFolderBackground": "#005f87",
+        "statusBar.debuggingBackground": "#005f87"
     },
     "gitlens.keymap": "alternate",
-    "workbench.statusBar.visible": false
+    "workbench.statusBar.visible": false,
+    "gitlens.advanced.messages": {
+        "suppressCommitHasNoPreviousCommitWarning": false,
+        "suppressCommitNotFoundWarning": false,
+        "suppressFileNotUnderSourceControlWarning": false,
+        "suppressGitVersionWarning": false,
+        "suppressLineUncommittedWarning": false,
+        "suppressNoRepositoryWarning": false,
+        "suppressResultsExplorerNotice": true,
+        "suppressShowKeyBindingsNotice": true
+    }
 }
