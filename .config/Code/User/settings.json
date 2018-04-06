@@ -397,7 +397,7 @@
             "after": [],
             "commands": [
                 {
-                    "command": "git.branch",
+                    "command": "git.checkout",
                     "args": []
                 }
             ]
@@ -411,7 +411,7 @@
             "after": [],
             "commands": [
                 {
-                    "command": "git.deleteBranch",
+                    "command": "git.branch",
                     "args": []
                 }
             ]
@@ -1022,9 +1022,9 @@
     "workbench.activityBar.visible": false,
     "window.menuBarVisibility": "toggle",
     "workbench.colorCustomizations": {
-        "statusBar.background": "#5f00af",
-        "statusBar.noFolderBackground": "#5f00af",
-        "statusBar.debuggingBackground": "#5f00af"
+        "statusBar.background": "#005f87",
+        "statusBar.noFolderBackground": "#005f87",
+        "statusBar.debuggingBackground": "#005f87"
     },
     "gitlens.keymap": "alternate",
     "workbench.statusBar.visible": false,
