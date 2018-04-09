@@ -48,8 +48,11 @@ values."
          flycheck-gometalinter-fast t
          flycheck-gometalinter-test t
          flycheck-gometalinter-deadline "30s")
+     groovy
      helm
      html
+     java
+     javascript
      (markdown :variables markdown-live-preview-engine 'vmd)
      (python :variables
              python-test-runner 'pytest
