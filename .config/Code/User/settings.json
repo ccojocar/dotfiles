@@ -208,48 +208,6 @@
         },
         {
             "before": [
-                "leader",
-                "c",
-                "d"
-            ],
-            "after": [],
-            "commands": [
-                {
-                    "command": "editor.action.goToDeclaration",
-                    "args": []
-                }
-            ]
-        },
-        {
-            "before": [
-                "leader",
-                "c",
-                "i"
-            ],
-            "after": [],
-            "commands": [
-                {
-                    "command": "editor.action.goToImplementation",
-                    "args": []
-                }
-            ]
-        },
-        {
-            "before": [
-                "leader",
-                "c",
-                "r"
-            ],
-            "after": [],
-            "commands": [
-                {
-                    "command": "editor.action.referenceSearch.trigger",
-                    "args": []
-                }
-            ]
-        },
-        {
-            "before": [
                 "<leader>",
                 "c",
                 "l"
@@ -1015,7 +973,292 @@
                     "args": []
                 }
             ]
-        }
+        },
+        {
+            "before": [
+                "<leader>",
+                "m",
+                "g",
+                "a"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "go.toggle.test.file",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "m",
+                "g",
+                "g"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.goToDeclaration",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "m",
+                "g",
+                "i"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.goToImplementation",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "m",
+                "f",
+                "r"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.referenceSearch.trigger",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "m",
+                "i",
+                "a"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "go.import.add",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "m",
+                "i",
+                "g"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "go.get.package",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "m",
+                "i",
+                "f"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "go.browse.packages",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "m",
+                "t",
+                "g"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "go.test.generate.function",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "m",
+                "t",
+                "G"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "go.test.generate.file",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "m",
+                "t",
+                "f"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "go.test.file",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "m",
+                "t",
+                "p"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "go.test.package",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "m",
+                "t",
+                "w"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "go.test.workspace",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "m",
+                "r",
+                "i"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "go.impl.cursor",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "m",
+                "r",
+                "t"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "go.add.tags",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "m",
+                "r",
+                "T"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "go.remove.tags",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "m",
+                "r",
+                "s"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "go.fill.struct",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "m",
+                "r",
+                "b"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "go.build.workspace",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "m",
+                "r",
+                "l"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "go.lint.workspace",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "m",
+                "r",
+                "v"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "go.vet.workspace",
+                    "args": []
+                }
+            ]
+        },
     ],
     "team.showWelcomeMessage": false,
     "workbench.startupEditor": "newUntitledFile",
