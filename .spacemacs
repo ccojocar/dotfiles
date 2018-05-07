@@ -57,8 +57,6 @@ values."
      (python :variables
              python-test-runner 'pytest
              python-enable-yapf-format-on-save t)
-     (rust :variables
-           rust-format-on-save t)
      (spell-checking :variables ispell-program-name "aspell")
      syntax-checking
      (shell :variables

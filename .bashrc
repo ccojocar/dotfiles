@@ -118,5 +118,5 @@ if ! shopt -oq posix; then
 fi
 
 #RVM
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="$PATH:$HOME/.rvm/bin"
 export rvmsudo_secure_path=1

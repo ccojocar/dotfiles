@@ -6,10 +6,10 @@
 #
 set my_server='imap.gmail.com'
 set my_smtp_server='smtp.gmail.com'	
-set my_user='cosmin.cojocar@gmail.com'
+set my_user=''
 set my_pass=''
 set realname='Cosmin Cojocar'
-set from='cosmin.cojocar@gmail.com'
+set from=''
 
 # Account [SMTP and IMAP]
 #
