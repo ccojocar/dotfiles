@@ -63,7 +63,7 @@ Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'zchee/deoplete-jedi'
 
 " Colorschemes
-Plug 'cosmincojocar/vim-monokai'
+Plug 'ccojocar/vim-monokai'
 
 call plug#end()
 
