@@ -1,76 +1,59 @@
-# ~/.profile: executed by the command interpreter for login shells.
-# This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
-# exists.
-# see /usr/share/doc/bash/examples/startup-files for examples.
-# the files are located in the bash-doc package.
-
-# the default umask is set in /etc/profile; for setting the umask
-# for ssh logins, install and configure the libpam-umask package.
-#umask 022
-
-# if running bash
-if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
-    fi
-fi
-
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
+export CLICOLOR=cons25
 
 # YoubiKey configuration for ssh key
 export SSH_AUTH_SOCK="$HOME/.gnupg/S.gpg-agent.ssh"
 gpg-connect-agent updatestartuptty /bye
 
-# SSH
-# eval `keychain --eval --agents ssh ~/.ssh/cosmc_rsa`
+# SSH agent
+#eval `keychain --eval --agents ssh ~/.ssh/cosmc_rsa`
+
+# Binaries paths
+export PATH=/opt/local/bin:/opt/local/sbin:${HOME}/bin:$PATH
+export PATH=$PATH:~/bin:/usr/local/bin
+
+# Brew
+export PATH="/usr/local/bin:$PATH"
 
 # Emacs
+alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw"
 export TERM=xterm-256color
-alias emacs='emacs -nw'
 
-# Editor configuration
+# Editor
 alias vi='nvim'
 alias vim='nvim'
-export EDITOR=vim
-export VIEWER=vim
-export PAGER=cat
+export EDITOR=nvim
+export VIEW=nvim
 
-# Configure local scripts in path
-export PATH=$PATH:$HOME/bin
+# Watch
+alias w='watch -c -t'
+
+# Ctags
+alias t='ctags -R --c++-kinds=+p --fields=+iaS --extra=+q `find . -name "*.c" -o -name "*.cc" -o -name "*.cpp" -o name "*.h" -o -name "*.hpp"`'
 
 # Docker
-alias docker='docker --tls'
+#alias docker='docker --tls'
 alias minikube_docker='eval $(minikube docker-env)'
 alias docker_cleanup_exited='docker rm -v $(docker ps -a -q -f status=exited)'
 alias docker_remove_all_containers='docker rm -f $(docker ps -a -q)'
 alias docker_remove_all_images='docker rmi -f $(docker images -q)'
 
-# Git
-function parse_git_branch () {
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-}
-
-RED="\[\033[0;31m\]"
-YELLOW="\[\033[0;33m\]"
-GREEN="\[\033[0;32m\]"
-NO_COLOR="\[\033[0m\]"
-PS1="$GREEN\u@\h$NO_COLOR:\W$YELLOW\$(parse_git_branch)$NO_COLOR> "
-
 # Go
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export PATH="$PATH":$GOROOT/bin
 
-# Ctags
-alias t='ctags -R --c++-kinds=+p --fields=+iaS --extra=+q `find . -name "*.c" -o -name "*.cc" -o -name "*.cpp" -o name "*.h" -o -name "*.hpp"`'
-
 # Python
+export PATH=$PATH:$HOME/Library/Python/2.7/bin
 alias pydb='python -m pudb.run'
+
+# Jenv
+export PATH=$PATH:~/.jenv/bin
+eval "$(jenv init -)"
+
+# Java
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_112.jdk/Contents/Home"
 
 # Maven
 alias mvnFast='mvn -DskipTests=true -DskipJavadoc=true -Dgwt.compiler.localWorkers=3 -P dev -T 2'
@@ -78,17 +61,25 @@ alias mvnFastest='mvn -DskipDebianPackaging=true -Dsindbad.profile=dev -DskipJav
 alias mvnFastTest='mvn -DskipJavadoc=true -Dgwt.compiler.localWorkers=3 -P dev -T 2'
 
 mvn_change_version() {
-  mvn versions:set -DgenerateBackupPoms=false -DnewVersion=$1
+    mvn versions:set -DgenerateBackupPoms=false -DnewVersion=$1
 }
 
 alias mvnVersion=mvn_change_version
 
-# Jenv
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
-export JAVA_HOME="$(jenv javahome)"
+# Rust
+export PATH="$PATH:$HOME/.cargo/bin"
+export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 
-# Azure KeyVault
+# Ruby
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# Eyaml
+alias eyaml_dse1='ln -sf ~/.eyaml/dse1/config.yaml ~/.eyaml/config.yaml'
+alias eyaml_dse2='ln -sf ~/.eyaml/dse2/config.yaml ~/.eyaml/config.yaml'
+alias eyaml_edit='eyaml edit'
+
+# Helper functions for Azure KeyVault
 find_secret() {
 	az keyvault secret list --vault-name $1 | jq -r --arg PATTERN "$2" '.[] | select(.contentType | . and test($PATTERN; "i")) | "Id: \(.id) \n\(.contentType)"'
 }
@@ -105,5 +96,5 @@ alias find-secret=find_secret
 alias get-secret=get_secret
 alias set-secret=set_secret
 
-# RVM
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
+# Kubernetes
+export PATH=$PATH:$HOME/Projects/github/kubeadm-dind-cluster
