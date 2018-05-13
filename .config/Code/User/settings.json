@@ -1268,7 +1268,7 @@
         "statusBar.debuggingBackground": "#005f87"
     },
     "gitlens.keymap": "alternate",
-    "workbench.statusBar.visible": false,
+    "workbench.statusBar.visible": true,
     "gitlens.advanced.messages": {
         "suppressCommitHasNoPreviousCommitWarning": false,
         "suppressCommitNotFoundWarning": false,
