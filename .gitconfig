@@ -4,7 +4,7 @@
 [core]
 	fileMode = false
 	autocrlf = input
-	editor = vim
+	editor = nvim
 	commentChar = *
 [alias]
 lg1 = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
@@ -22,4 +22,6 @@ lg = !"git lg1"
 [difftool]
   prompt = false
 [diff]
-  tool = vimdiff
+  tool = nvim -d
+[diff "sopsdiffer"]
+  textconv = sops -d
