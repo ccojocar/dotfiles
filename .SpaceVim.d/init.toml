@@ -73,6 +73,9 @@ name = 'tmux'
 name = 'lang#go'
 
 [[layers]]
+ name = "lang#rust"
+
+[[layers]]
 name = 'lang#python'
 
 [[layers]]
@@ -96,11 +99,9 @@ name = 'lang#json'
 [[layers]]
 name = 'lsp'
 filetypes = [
-    "go"
+    "go",
+    "rust"
   ]
-
-[[layers]]
-  name = "lang#rust"
 
 [[layers]]
 name = 'lang#toml'
