@@ -67,6 +67,9 @@ name = 'unite'
 name = 'default'
 
 [[layers]]
+name = 'denite'
+
+[[layers]]
 name = 'tmux'
 
 [[layers]]
