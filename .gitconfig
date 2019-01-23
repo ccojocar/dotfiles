@@ -2,26 +2,50 @@
 	name = Cosmin Cojocar
 	email = cosmin.cojocar@gmx.ch
 [core]
-	fileMode = false
-	autocrlf = input
+	mergeoptions = --no-edit
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
 	editor = nvim
 	commentChar = *
+[color]
+	ui = true
 [alias]
-lg1 = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
-lg2 = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(bold white)— %an%C(reset)' --abbrev-commit
-lg3 = log --graph --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(bold white)— %an%C(reset)' --abbrev-commit
-lg = !"git lg1"
+    co = checkout
+	ci = commit
+	st = status
+	br = branch
+	revert = checkout --
+	amend = commit --amend
+    curbr = rev-parse --abbrev-ref HEAD
+	root = rev-parse --show-toplevel
+	fup = fetch upstream
+	rb = rebase
+	rbup = rebase upstream/master
+	po = push origin
+	pocur = !git po $(git curbr)
+	pofcur = !git po -f $(git curbr)
+	wdiff = diff --color-words
+	track = "!f() { git co -b $1 origin/$1; }; f"
+	copr = "!f() { git fetch upstream pull/$1/head:pr-$1; git co pr-$1;}; f"
+	hist = log --pretty=format:'%C(yellow)[%ad]%C(reset) %C(green)[%h]%C(reset) | %C(white)%s %C(bold red)[%an]%C(reset) %C(blue)%d%C(reset)' --graph --date=short
+	lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+	lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+	lg = !"git lg1"
+	d = difftool
 [credential]
-	helper = cache --timeout=604800
+	helper = osxkeychain
 [merge]
-  tool = vimdiff
+  tool = nvim -d
+  conflictstyle = diff3
 [mergetool]
   prompt = true
 [mergetool "vimdiff"]
   cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
-[difftool]
-  prompt = false
 [diff]
   tool = nvim -d
+[difftool]
+  prompt = false
 [diff "sopsdiffer"]
   textconv = sops -d
