@@ -97,4 +97,18 @@ alias get-secret=get_secret
 alias set-secret=set_secret
 
 # Kubernetes
-export PATH=$PATH:$HOME/Projects/github/kubeadm-dind-cluster
+ksecret() {
+    kubectl get secert -o yaml $1 | ksd
+}
+
+dcrds() {
+    kubectl get crds | grep $1 | awk '{print $1}' | while read crd; do kubectl delete crd $crd; done
+}
+
+crds() {
+    kubectl get crds | grep $1 | awk '{print $1}' 
+}
+
+hdp() {
+    helm delete --purge $1
+}
