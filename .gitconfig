@@ -38,15 +38,15 @@
 [credential]
 	helper = osxkeychain
 [merge]
-  tool = nvim -d
-  conflictstyle = diff3
+    tool = vimdiff
+	conflictstyle = diff3
 [mergetool]
-  prompt = true
+    prompt = true
 [mergetool "vimdiff"]
-  cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+    cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [diff]
-  tool = nvim -d
+	tool = vimdiff
 [difftool]
-  prompt = false
+	promt = false
 [diff "sopsdiffer"]
-  textconv = sops -d
+	textconv = sops -d
