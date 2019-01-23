@@ -97,6 +97,7 @@ alias get-secret=get_secret
 alias set-secret=set_secret
 
 # Kubernetes
+alias k=kubectl
 # Get and decode a kuberntes secret
 ksecret() {
     kubectl get secert -o yaml $1 | ksd
