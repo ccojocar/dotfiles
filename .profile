@@ -123,3 +123,6 @@ dcrds() {
 hdp() {
     helm delete --purge $1
 }
+
+# GitHub
+alias hpr='hub pull-request'
