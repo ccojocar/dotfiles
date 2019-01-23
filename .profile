@@ -98,6 +98,7 @@ alias set-secret=set_secret
 
 # Kubernetes
 alias k=kubectl
+alias h=helm
 # Get and decode a kuberntes secret
 ksecret() {
     kubectl get secert -o yaml $1 | ksd
