@@ -97,18 +97,27 @@ alias get-secret=get_secret
 alias set-secret=set_secret
 
 # Kubernetes
+# Get and decode a kuberntes secret
 ksecret() {
     kubectl get secert -o yaml $1 | ksd
 }
 
-dcrds() {
-    kubectl get crds | grep $1 | awk '{print $1}' | while read crd; do kubectl delete crd $crd; done
-}
-
+# List all crds for a specific pattern
 crds() {
     kubectl get crds | grep $1 | awk '{print $1}' 
 }
 
+# List all crds
+acrds() {
+    kubectl get crds
+}
+
+# Delete all crds for a specific pattern
+dcrds() {
+    kubectl get crds | grep $1 | awk '{print $1}' | while read crd; do kubectl delete crd $crd; done
+}
+
+# Delete and purge a helm chart release
 hdp() {
     helm delete --purge $1
 }
