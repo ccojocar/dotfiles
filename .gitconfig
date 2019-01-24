@@ -22,6 +22,7 @@
 	fup = fetch upstream
 	rb = rebase
 	rbup = rebase upstream/master
+    rau = remote add upstream
 	po = push origin
 	pocur = !git po $(git curbr)
 	pofcur = !git po -f $(git curbr)
