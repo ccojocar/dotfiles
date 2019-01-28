@@ -19,7 +19,7 @@
 	amend = commit --amend
     curbr = rev-parse --abbrev-ref HEAD
 	root = rev-parse --show-toplevel
-	fup = fetch upstream
+	fup = fetch -a upstream
 	rb = rebase
 	rbup = rebase upstream/master
     rau = remote add upstream
