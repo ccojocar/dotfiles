@@ -1,3 +1,4 @@
+
 [user]
 	name = Cosmin Cojocar
 	email = cosmin.cojocar@gmx.ch
@@ -15,7 +16,7 @@
 	ci = commit
 	st = status
 	br = branch
-	revert = checkout --
+	discard = !git clean -fd && git checkout -- .
 	amend = commit --amend
     curbr = rev-parse --abbrev-ref HEAD
 	root = rev-parse --show-toplevel
