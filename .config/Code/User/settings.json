@@ -1,7 +1,7 @@
 {
     "editor.minimap.enabled": false,
     "editor.fontSize": 13,
-    "editor.fontFamily": "monospace",
+    "editor.fontFamily": "Menlo",
     "editor.lineNumbers": "off",
     "diffEditor.renderSideBySide": false,
     "workbench.colorTheme": "Monokai",
@@ -36,7 +36,7 @@
             ]
         }
     ],
-    "vim.otherModesKeyBindingsNonRecursive": [
+    "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": [
                 "<C-t>"
@@ -841,7 +841,7 @@
             "before": [
                 "<leader>",
                 "q",
-                "f"
+                "w"
             ],
             "after": [],
             "commands": [
@@ -936,7 +936,7 @@
             "before": [
                 "<leader>",
                 "w",
-                "d"
+                "o"
             ],
             "after": [],
             "commands": [
@@ -978,7 +978,6 @@
             "before": [
                 "<leader>",
                 "m",
-                "g",
                 "a"
             ],
             "after": [],
@@ -993,8 +992,7 @@
             "before": [
                 "leader",
                 "m",
-                "g",
-                "g"
+                "d"
             ],
             "after": [],
             "commands": [
@@ -1008,7 +1006,6 @@
             "before": [
                 "leader",
                 "m",
-                "g",
                 "i"
             ],
             "after": [],
@@ -1023,7 +1020,6 @@
             "before": [
                 "leader",
                 "m",
-                "f",
                 "r"
             ],
             "after": [],
@@ -1038,8 +1034,7 @@
             "before": [
                 "leader",
                 "m",
-                "i",
-                "a"
+                "p"
             ],
             "after": [],
             "commands": [
@@ -1053,7 +1048,6 @@
             "before": [
                 "leader",
                 "m",
-                "i",
                 "g"
             ],
             "after": [],
@@ -1068,7 +1062,6 @@
             "before": [
                 "leader",
                 "m",
-                "i",
                 "f"
             ],
             "after": [],
@@ -1083,8 +1076,7 @@
             "before": [
                 "leader",
                 "m",
-                "t",
-                "g"
+                "t"
             ],
             "after": [],
             "commands": [
@@ -1098,8 +1090,7 @@
             "before": [
                 "leader",
                 "m",
-                "t",
-                "G"
+                "T"
             ],
             "after": [],
             "commands": [
@@ -1113,23 +1104,7 @@
             "before": [
                 "leader",
                 "m",
-                "t",
-                "f"
-            ],
-            "after": [],
-            "commands": [
-                {
-                    "command": "go.test.file",
-                    "args": []
-                }
-            ]
-        },
-        {
-            "before": [
-                "leader",
-                "m",
-                "t",
-                "p"
+                "v"
             ],
             "after": [],
             "commands": [
@@ -1143,23 +1118,7 @@
             "before": [
                 "leader",
                 "m",
-                "t",
-                "w"
-            ],
-            "after": [],
-            "commands": [
-                {
-                    "command": "go.test.workspace",
-                    "args": []
-                }
-            ]
-        },
-        {
-            "before": [
-                "leader",
-                "m",
-                "r",
-                "i"
+                "l"
             ],
             "after": [],
             "commands": [
@@ -1173,8 +1132,7 @@
             "before": [
                 "leader",
                 "m",
-                "r",
-                "t"
+                "j"
             ],
             "after": [],
             "commands": [
@@ -1188,8 +1146,7 @@
             "before": [
                 "leader",
                 "m",
-                "r",
-                "T"
+                "J"
             ],
             "after": [],
             "commands": [
@@ -1203,7 +1160,6 @@
             "before": [
                 "leader",
                 "m",
-                "r",
                 "s"
             ],
             "after": [],
@@ -1218,7 +1174,6 @@
             "before": [
                 "leader",
                 "m",
-                "r",
                 "b"
             ],
             "after": [],
@@ -1233,8 +1188,7 @@
             "before": [
                 "leader",
                 "m",
-                "r",
-                "l"
+                "n"
             ],
             "after": [],
             "commands": [
@@ -1248,8 +1202,7 @@
             "before": [
                 "leader",
                 "m",
-                "r",
-                "v"
+                "z"
             ],
             "after": [],
             "commands": [
@@ -1281,4 +1234,7 @@
     },
     "workbench.iconTheme": "vscode-icons",
     "vsicons.dontShowNewVersionMessage": true,
+    "gitlens.historyExplorer.enabled": true,
+    "extensions.ignoreRecommendations": false,
+    "go.useLanguageServer": true,
 }
