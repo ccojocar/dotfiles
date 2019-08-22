@@ -127,7 +127,11 @@ merged = 0
 
 [[custom_plugins]]
 name = "martinda/jenkinsfile-vim-syntax"
-uerged = 0
+merged = 0
+
+[[custom_plugins]]
+name = "towolf/vim-helm"
+merged = 0
 
 # [[custom_plugins]]
     # name = "SpaceVim/denite.nvim"
