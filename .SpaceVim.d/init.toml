@@ -133,6 +133,10 @@ merged = 0
 name = "towolf/vim-helm"
 merged = 0
 
+[[custom_plugins]]
+name = "will133/vim-dirdiff"
+merged = 0
+
 # [[custom_plugins]]
     # name = "SpaceVim/denite.nvim"
     # merged = false
