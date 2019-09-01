@@ -46,6 +46,7 @@ name = 'VersionControl'
 
 [[layers]]
 name = 'checkers'
+show_cursor_error = false
 
 [[layers]]
 name = 'colorscheme'
