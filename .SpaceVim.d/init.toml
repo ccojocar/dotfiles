@@ -27,6 +27,7 @@
     enable_vimfiler_welcome = 0
     enable_vimfiler_gitstatus = true
     filemanager = "nerdtree"
+    lint_on_the_fly = false
 
 # Enable autocomplete layer
 [[layers]]
