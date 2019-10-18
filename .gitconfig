@@ -21,8 +21,10 @@
     curbr = rev-parse --abbrev-ref HEAD
 	root = rev-parse --show-toplevel
 	fup = fetch -a upstream
+    fo = fetch -o origin
 	rb = rebase
 	rbup = rebase upstream/master
+    rbo = rebase origin/master
     rau = remote add upstream
 	po = push origin
 	pocur = !git po $(git curbr)
