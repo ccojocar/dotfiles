@@ -29,6 +29,9 @@
     filemanager = "nerdtree"
     lint_on_the_fly = false
 
+    bootstrap_before = "myspacevim#before"
+    bootstrap_after = "myspacevim#after"
+
 # Enable autocomplete layer
 [[layers]]
 name = 'autocomplete'
@@ -132,4 +135,8 @@ merged = 0
 
 [[custom_plugins]]
 name = "will133/vim-dirdiff"
+merged = 0
+
+[[custom_plugins]]
+name = "hashivim/vim-terraform"
 merged = 0
