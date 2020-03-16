@@ -91,6 +91,9 @@ name = 'lang#typescript'
 name = 'lang#sh'
 
 [[layers]]
+name = 'lang#groovy'
+
+[[layers]]
 name = 'lang#html'
 
 [[layers]]
@@ -103,7 +106,10 @@ name = 'lang#json'
 name = 'lsp'
 filetypes = [
     "go",
+    "groovy",
+    "python",
     "rust",
+    "terraform",
     "yaml"
   ]
 
