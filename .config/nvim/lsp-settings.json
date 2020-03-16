@@ -1,0 +1,18 @@
+{
+    "yaml": {
+        "completion": true,
+        "hover": true,
+        "validate": true,
+        "schemas": {
+            "https://jenkins-x.io/schemas/jx-schema.json": "jenkins-x.yml"
+        },
+        "format": {
+            "enable": true
+        }
+    },
+    "groovy": {
+        "classpath": [
+            "/usr/local/opt/groovy/libexec/lib"
+        ]
+    }
+}
