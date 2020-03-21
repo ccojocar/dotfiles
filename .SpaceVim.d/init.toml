@@ -80,6 +80,7 @@ name = 'lang#go'
 
 [[layers]]
 name = 'lang#python'
+enable_typeinfo = true
 
 [[layers]]
 name = 'lang#javascript'
@@ -105,6 +106,8 @@ name = 'lang#json'
 [[layers]]
 name = 'lsp'
 filetypes = [
+    "c",
+    "cpp",
     "go",
     "groovy",
     "python",
