@@ -73,6 +73,9 @@ name = 'default'
 name = 'tmux'
 
 [[layers]]
+name = 'lang#c'
+
+[[layers]]
 name = 'lang#go'
 
 [[layers]]
