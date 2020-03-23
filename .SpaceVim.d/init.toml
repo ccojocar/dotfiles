@@ -152,3 +152,15 @@ merged = 0
 [[custom_plugins]]
 name = "hashivim/vim-terraform"
 merged = 0
+
+[[custom_plugins]]
+name = "aklt/plantuml-syntax"
+merged = 0
+
+[[custom_plugins]]
+name = "tyru/open-browser.vim"
+merged = 0
+
+[[custom_plugins]]
+name = "weirongxu/plantuml-previewer.vim"
+merged = 0
