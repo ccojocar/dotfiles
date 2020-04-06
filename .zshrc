@@ -1,14 +1,28 @@
-# Path to your oh-my-zsh installation.
-export ZSH=/Users/cosmin/.oh-my-zsh
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+[[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="agnoster"
+# Path to your oh-my-zsh installation.
+export ZSH="/Users/cosmin/.oh-my-zsh"
+
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME="cosmin"
+
+# Set list of themes to load
+# Setting this variable when ZSH_THEME=random
+# cause zsh load theme from this variable instead of
+# looking in ~/.oh-my-zsh/themes/
+# An empty array have no effect
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -44,12 +58,23 @@ ZSH_THEME="agnoster"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-export TERM=xterm-256color # Add wisely, as too many plugins slow down shell startup.
-plugins=(git osx brew sublime tmux)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(
+  git
+  github
+  docker
+  brew
+  sudo
+  npm
+  tmux
+  osx
+)
+
+source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-source $ZSH/oh-my-zsh.sh
+# export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -65,7 +90,7 @@ source $ZSH/oh-my-zsh.sh
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -76,29 +101,33 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Enable terminal colors
-export CLICOLOR=1
-export LSCOLORS=GxFxCxDxBxegedabagaced
-
-DEFAULT_USER=cosmin
-
-# Fuzzy history
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# Hub completion
-fpath=(~/.zsh/completions $fpath) 
-autoload -U compinit && compinit
-
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/cosmin/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/cosmin/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/cosmin/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/cosmin/google-cloud-sdk/completion.zsh.inc'; fi
 
-# jx completion 
+# Fuzzy history
+
+# hub completion
+fpath=(~/.zsh/completions $fpath) 
+autoload -U compinit && compinit
+
+# jx completion
 source <(jx completion zsh)
 
-# Kubernetes context
- source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
- PS1='$(kube_ps1)'$PS1
+# AWS completion
+# source aws_zsh_completer.sh
 
+# Helm completion
+# source <(helm completion zsh)
+
+# Kubernetes context
+source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+PS1='$(kube_ps1)'$PS1
+
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export PATH="/usr/local/opt/helm@2/bin:$PATH"
+export PATH="/usr/local/opt/mysql-client/bin:$PATH"
