@@ -2,7 +2,7 @@
     "editor.minimap.enabled": false,
     "editor.fontSize": 11,
     "editor.fontFamily": "Hack",
-    "editor.lineNumbers": "off",
+   "editor.lineNumbers": "off",
     "diffEditor.renderSideBySide": false,
     "workbench.colorTheme": "Monokai ST3",
     "vim.easymotion": true,
@@ -983,14 +983,14 @@
         },
         {
             "before": [
-                "<leader>",
+                "leader",
                 "l",
-                "t",
+                "a",
             ],
             "after": [],
             "commands": [
                 {
-                    "command": "go.toggle.test.file",
+                    "command": "go.import.add",
                     "args": []
                 }
             ]
@@ -999,12 +999,12 @@
             "before": [
                 "leader",
                 "l",
-                "T",
+                "b",
             ],
             "after": [],
             "commands": [
                 {
-                    "command": "go.test.generate.file",
+                    "command": "go.build.workspace",
                     "args": []
                 }
             ]
@@ -1027,76 +1027,6 @@
             "before": [
                 "leader",
                 "l",
-                "i"
-            ],
-            "after": [],
-            "commands": [
-                {
-                    "command": "editor.action.goToImplementation",
-                    "args": []
-                }
-            ]
-        },
-        {
-            "before": [
-                "leader",
-                "l",
-                "r",
-            ],
-            "after": [],
-            "commands": [
-                {
-                    "command": "editor.action.referenceSearch.trigger",
-                    "args": []
-                }
-            ]
-        },
-        {
-            "before": [
-                "leader",
-                "l",
-                "a",
-            ],
-            "after": [],
-            "commands": [
-                {
-                    "command": "go.import.add",
-                    "args": []
-                }
-            ]
-        },
-        {
-            "before": [
-                "leader",
-                "l",
-                "p",
-            ],
-            "after": [],
-            "commands": [
-                {
-                    "command": "go.get.package",
-                    "args": []
-                }
-            ]
-        },
-        {
-            "before": [
-                "leader",
-                "l",
-                "P",
-            ],
-            "after": [],
-            "commands": [
-                {
-                    "command": "go.browse.packages",
-                    "args": []
-                }
-            ]
-        },
-        {
-            "before": [
-                "leader",
-                "l",
                 "f",
             ],
             "after": [],
@@ -1111,12 +1041,12 @@
             "before": [
                 "leader",
                 "l",
-                "I",
+                "i"
             ],
             "after": [],
             "commands": [
                 {
-                    "command": "go.impl.cursor",
+                    "command": "editor.action.goToImplementation",
                     "args": []
                 }
             ]
@@ -1153,26 +1083,12 @@
             "before": [
                 "leader",
                 "l",
-                "s"
+                "I",
             ],
             "after": [],
             "commands": [
                 {
-                    "command": "go.fill.struct",
-                    "args": []
-                }
-            ]
-        },
-        {
-            "before": [
-                "leader",
-                "l",
-                "b",
-            ],
-            "after": [],
-            "commands": [
-                {
-                    "command": "go.build.workspace",
+                    "command": "go.impl.cursor",
                     "args": []
                 }
             ]
@@ -1187,6 +1103,90 @@
             "commands": [
                 {
                     "command": "go.lint.workspace",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "l",
+                "t",
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "go.toggle.test.file",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "l",
+                "T",
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "go.test.generate.file",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "l",
+                "r",
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.referenceSearch.trigger",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "l",
+                "p",
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "go.get.package",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "l",
+                "P",
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "go.browse.packages",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "l",
+                "s"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "go.fill.struct",
                     "args": []
                 }
             ]
@@ -1243,10 +1243,7 @@
             "source.organizeImports": true
         },
     },
-    "gopls": {
-        "enablePlaceholders": true, // add parameter placeholders when completing a function
-        "enhancedHover": true, // experimental to improve quality of hover (will be on by default soon)
-    },
+    "go.autocompleteUnimportedPackages": true,
     "vsicons.dontShowNewVersionMessage": true,
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
