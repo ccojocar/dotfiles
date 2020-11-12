@@ -1247,5 +1247,5 @@
     "vsicons.dontShowNewVersionMessage": true,
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "git.enableSmartCommit": true
+    "git.enableCommitSigning": true
 }
