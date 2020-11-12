@@ -1,7 +1,8 @@
 
 [user]
 	name = Cosmin Cojocar
-	email = cosmin.cojocar@gmx.ch
+	email = ccojocar@cloudbees.com
+	signingkey = 104155DDEEFC7B19
 [core]
 	mergeoptions = --no-edit
 	repositoryformatversion = 0
@@ -60,3 +61,11 @@
 	textconv = sops -d
 [secrets]
 	providers = opscore security run git-secrets-provider -q
+; [init]
+    ; templateDir = /Users/cosmin/.git-templates/git-secrets
+[url "git@github.com:"]                           
+        insteadOf = https://github.com/
+[gpg]
+	program = /usr/local/bin/gpg
+[commit]
+	gpgsign = true
