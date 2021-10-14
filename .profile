@@ -5,7 +5,7 @@ export CLICOLOR=cons25
 # gpg-connect-agent updatestartuptty /bye
 
 # SSH agent
-eval `keychain --eval --agents ssh ~/.ssh/id_rsa`
+# eval `keychain --eval --agents ssh ~/.ssh/id_rsa`
 export GPG_TTY="$(tty)"
 
 # Binaries paths
@@ -63,3 +63,7 @@ hdp() {
 # Github 
 alias ghp='gh pr create'
 
+# Java and Maven
+source "/Users/cosmin/.sdkman/bin/sdkman-init.sh"
+export JAVA_HOME=$(/usr/libexec/java_home)
+export PATH=$PATH:$HOME/bin/apache-maven/bin

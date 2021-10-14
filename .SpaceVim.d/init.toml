@@ -13,10 +13,11 @@
     # layer
     colorscheme = "molokai"
     background = "dark"
+
     default_indent = 4
     # Disable guicolors in basic mode, many terminal do not support 24bit
     # true colors
-    enable_guicolors = false
+    enable_guicolors = true
     # Disable statusline separator, if you want to use other value, please
     # install nerd fonts
     statusline_separator = "arrow"
@@ -28,9 +29,6 @@
     enable_vimfiler_gitstatus = true
     filemanager = "nerdtree"
     lint_on_the_fly = false
-
-    bootstrap_before = "myspacevim#before"
-    bootstrap_after = "myspacevim#after"
 
 # Enable autocomplete layer
 [[layers]]
@@ -56,6 +54,7 @@ name = 'colorscheme'
 
 [[layers]]
 name = 'git'
+git_plugin = 'gina'
 
 [[layers]]
 name = 'github'
@@ -73,23 +72,19 @@ name = 'default'
 name = 'tmux'
 
 [[layers]]
-name = 'lang#c'
+name = 'lang#asciidoc'
 
 [[layers]]
 name = 'lang#go'
 
 [[layers]]
- name = "lang#rust"
+name = "lang#rust"
+recommended_style = true
+format_on_save = true
 
 [[layers]]
 name = 'lang#python'
 enable_typeinfo = true
-
-[[layers]]
-name = 'lang#javascript'
-
-[[layers]]
-name = 'lang#typescript'
 
 [[layers]]
 name = 'lang#sh'
@@ -109,14 +104,10 @@ name = 'lang#json'
 [[layers]]
 name = 'lsp'
 filetypes = [
-    "c",
-    "cpp",
     "go",
-    "groovy",
     "python",
     "rust",
-    "terraform",
-    "yaml"
+    "terraform"
   ]
 
 [[layers]]

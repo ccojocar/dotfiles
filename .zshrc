@@ -113,14 +113,11 @@ if [ -f '/Users/cosmin/google-cloud-sdk/completion.zsh.inc' ]; then source '/Use
 fpath=(~/.zsh/completions $fpath) 
 autoload -U compinit && compinit
 
-# jx completion
-source <(jx completion zsh)
-
 # AWS completion
 # source aws_zsh_completer.sh
 
 # Helm completion
-# source <(helm completion zsh)
+source <(helm completion zsh)
 
 # Kubernetes context
 source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
@@ -129,5 +126,9 @@ PS1='$(kube_ps1)'$PS1
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export PATH="/usr/local/opt/helm@2/bin:$PATH"
-export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/cosmin/.sdkman"
+[[ -s "/Users/cosmin/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/cosmin/.sdkman/bin/sdkman-init.sh"
+
+export SSH_AUTH_SOCK=/Users/cosmin/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
