@@ -1,8 +1,8 @@
 {
     "editor.minimap.enabled": false,
     "editor.fontSize": 11,
-    "editor.fontFamily": "Hack",
-   "editor.lineNumbers": "off",
+    "editor.fontFamily": "Source Code Pro for Powerline",
+    "editor.lineNumbers": "off",
     "diffEditor.renderSideBySide": false,
     "workbench.colorTheme": "Monokai ST3",
     "vim.easymotion": true,
@@ -985,7 +985,7 @@
             "before": [
                 "leader",
                 "l",
-                "a",
+                "a"
             ],
             "after": [],
             "commands": [
@@ -999,7 +999,7 @@
             "before": [
                 "leader",
                 "l",
-                "b",
+                "b"
             ],
             "after": [],
             "commands": [
@@ -1013,7 +1013,7 @@
             "before": [
                 "leader",
                 "l",
-                "d",
+                "d"
             ],
             "after": [],
             "commands": [
@@ -1027,7 +1027,7 @@
             "before": [
                 "leader",
                 "l",
-                "f",
+                "f"
             ],
             "after": [],
             "commands": [
@@ -1069,7 +1069,7 @@
             "before": [
                 "leader",
                 "l",
-                "K",
+                "K"
             ],
             "after": [],
             "commands": [
@@ -1083,7 +1083,7 @@
             "before": [
                 "leader",
                 "l",
-                "I",
+                "I"
             ],
             "after": [],
             "commands": [
@@ -1097,7 +1097,7 @@
             "before": [
                 "leader",
                 "l",
-                "l",
+                "l"
             ],
             "after": [],
             "commands": [
@@ -1111,7 +1111,7 @@
             "before": [
                 "<leader>",
                 "l",
-                "t",
+                "t"
             ],
             "after": [],
             "commands": [
@@ -1125,7 +1125,7 @@
             "before": [
                 "leader",
                 "l",
-                "T",
+                "T"
             ],
             "after": [],
             "commands": [
@@ -1139,7 +1139,7 @@
             "before": [
                 "leader",
                 "l",
-                "r",
+                "r"
             ],
             "after": [],
             "commands": [
@@ -1153,7 +1153,7 @@
             "before": [
                 "leader",
                 "l",
-                "p",
+                "p"
             ],
             "after": [],
             "commands": [
@@ -1167,7 +1167,7 @@
             "before": [
                 "leader",
                 "l",
-                "P",
+                "P"
             ],
             "after": [],
             "commands": [
@@ -1204,7 +1204,7 @@
                     "args": []
                 }
             ]
-        },
+        }
     ],
     "workbench.startupEditor": "newUntitledFile",
     "workbench.activityBar.visible": false,
@@ -1218,9 +1218,7 @@
     "gitlens.keymap": "alternate",
     "workbench.statusBar.visible": true,
     "gitlens.advanced.messages": {
-        "suppressFileNotUnderSourceControlWarning": true,
-        "suppressResultsExplorerNotice": true,
-        "suppressShowKeyBindingsNotice": true
+        "suppressFileNotUnderSourceControlWarning": true
     },
     "gitlens.currentLine.enabled": false,
     "gitlens.codeLens.enabled": false,
@@ -1232,7 +1230,7 @@
         "go-langserver": "gopls"
     },
     "go.languageServerExperimentalFeatures": {
-        "diagnostics": true,
+        "diagnostics": true
     },
     "go.buildOnSave": "off",
     "go.vetOnSave": "off",
@@ -1241,7 +1239,7 @@
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
             "source.organizeImports": true
-        },
+        }
     },
     "go.autocompleteUnimportedPackages": true,
     "vsicons.dontShowNewVersionMessage": true,
