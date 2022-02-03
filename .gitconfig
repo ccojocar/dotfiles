@@ -5,7 +5,7 @@
 	signingkey = D4C8D14F280FB879
 [core]
 	mergeoptions = --no-edit
-	repositoryformatversion = 0
+	repositoryformatversion = 02
 	filemode = true
 	bare = false
 	logallrefupdates = true
