@@ -1,8 +1,8 @@
 
 [user]
 	name = Cosmin Cojocar
-	email = cosmin.cojocar@gmx.ch
-	signingkey = 7E847E8D5B94C6F9
+	email = gcojocar@adobe.com
+	signingkey = D4C8D14F280FB879
 [core]
 	mergeoptions = --no-edit
 	repositoryformatversion = 0
@@ -13,26 +13,31 @@
 	commentChar = *
 [alias]
     co = checkout
-    cob = checkout -b
 	ci = commit
 	st = status
 	br = branch
 	discard = !git clean -fd && git checkout -- .
+	revert = checkout --
 	amend = commit --amend
-    curbr = rev-parse --abbrev-ref HEAD
+	amx = commit --amend
+	ama = commit --amend -a
+	curbr = rev-parse --abbrev-ref HEAD
 	root = rev-parse --show-toplevel
-	fup = fetch -a upstream
-    fo = fetch -o origin
+	set-upstream = remote set-head upstream
+	reset-upstream = remote set-head upstream --auto
+	head = "!f() { if [ -z \"$1\" ]; then echo 'error: no remote specified' >&2; return 1; fi; git symbolic-ref refs/remotes/$1/HEAD; }; f"
+	mbr = "!f() { if ! git head upstream >/dev/null 2>&1; then git reset-upstream; fi; set -o pipefail; git head upstream | cut -f4 -d/; }; f"
+	fup = fetch upstream
 	rb = rebase
-	rbup = rebase upstream/master
-    rbo = rebase origin/master
-    rau = remote add upstream
+	rbup = "!f() { git rebase upstream/$(git mbr) \"$@\"; }; f"
 	po = push origin
 	pocur = !git po $(git curbr)
 	pofcur = !git po -f $(git curbr)
 	wdiff = diff --color-words
-	track = "!f() { git co -b $1 origin/$1; }; f"
-	copr = "!f() { git fetch upstream pull/$1/head:pr-$1; git co pr-$1;}; f"
+	track = "!f() { if [ -z \"$1\" ]; then echo 'error: no branch specified' >&2; return 1; fi; git fetch origin $1 && git co -b $1 origin/$1; }; f"
+	copr = "!f() { if [ -z \"$1\" ]; then echo 'error: no PR specified' >&2; return 1; fi; git fetch upstream pull/$1/head:pr-$1; git co pr-$1;}; f"
+	wip = for-each-ref --sort='committerdate:iso8601' --format=' %(color:green)%(committerdate:relative)%09%(color:white)%(refname:short)' refs/heads
+	my = "!f() { git log --reverse --format='format:%C(auto)%H  %s' upstream/$(git mbr)..HEAD; echo;}; f"
 	hist = log --pretty=format:'%C(yellow)[%ad]%C(reset) %C(green)[%h]%C(reset) | %C(white)%s %C(bold red)[%an]%C(reset) %C(blue)%d%C(reset)' --graph --date=short
 	lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
 	lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
@@ -59,9 +64,13 @@
 	promt = false
 [diff "sopsdiffer"]
 	textconv = sops -d
-[url "git@github.com:"]                           
-        insteadOf = https://github.com/
 [gpg]
-	program = gpg
+	program = /usr/local/bin/gpg
 [commit]
 	gpgsign = true
+[http "https://gopkg.in"]
+	followRedirects = true
+[advice]
+	detachedHead = false
+[rerere]
+	enabled = false
