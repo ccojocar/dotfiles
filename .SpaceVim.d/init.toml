@@ -13,7 +13,6 @@
     # layer
     colorscheme = "molokai"
     background = "dark"
-
     default_indent = 4
     # Disable guicolors in basic mode, many terminal do not support 24bit
     # true colors
@@ -29,11 +28,12 @@
     enable_vimfiler_gitstatus = true
     filemanager = "nerdtree"
     lint_on_the_fly = false
+    autocomplete_method = "coc"
+    snippet_engine = "ultisnips"
 
 # Enable autocomplete layer
 [[layers]]
 name = 'autocomplete'
-spacevim_autocomplete_method = "depplete"
 auto-completion-return-key-behavior = "complete"
 auto-completion-tab-key-behavior = "smart"
 
@@ -72,19 +72,24 @@ name = 'default'
 name = 'tmux'
 
 [[layers]]
-name = 'lang#asciidoc'
+name = 'lang#c'
 
 [[layers]]
 name = 'lang#go'
 
 [[layers]]
 name = "lang#rust"
-recommended_style = true
-format_on_save = true
+racer_cmd = "rust-analyzer"
 
 [[layers]]
 name = 'lang#python'
 enable_typeinfo = true
+
+[[layers]]
+name = 'lang#javascript'
+
+[[layers]]
+name = 'lang#typescript'
 
 [[layers]]
 name = 'lang#sh'
@@ -104,11 +109,12 @@ name = 'lang#json'
 [[layers]]
 name = 'lsp'
 filetypes = [
+    "c",
     "go",
     "python",
-    "rust",
-    "terraform"
+    "rust"
   ]
+enabled_clients=['pyright']
 
 [[layers]]
 name = 'lang#toml'
@@ -154,4 +160,8 @@ merged = 0
 
 [[custom_plugins]]
 name = "weirongxu/plantuml-previewer.vim"
+merged = 0
+
+[[custom_plugins]]
+name = "christianrondeau/vim-base64"
 merged = 0
