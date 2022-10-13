@@ -1,11 +1,10 @@
-
 [user]
 	name = Cosmin Cojocar
 	email = gcojocar@adobe.com
 	signingkey = D4C8D14F280FB879
 [core]
 	mergeoptions = --no-edit
-	repositoryformatversion = 02
+	repositoryformatversion = 0
 	filemode = true
 	bare = false
 	logallrefupdates = true
@@ -25,6 +24,7 @@
 	root = rev-parse --show-toplevel
 	set-upstream = remote set-head upstream
 	reset-upstream = remote set-head upstream --auto
+    rau = remote add upstream
 	head = "!f() { if [ -z \"$1\" ]; then echo 'error: no remote specified' >&2; return 1; fi; git symbolic-ref refs/remotes/$1/HEAD; }; f"
 	mbr = "!f() { if ! git head upstream >/dev/null 2>&1; then git reset-upstream; fi; set -o pipefail; git head upstream | cut -f4 -d/; }; f"
 	fup = fetch upstream
@@ -47,8 +47,11 @@
     undo = !git reset --hard && git clean -fd
 [color]
 	ui = true
+	editor = "hx"
 [credential]
 	helper = osxkeychain
+[init]
+	defaultBranch = "main"
 [merge]
     tool = vimdiff
 	conflictstyle = diff3
@@ -59,18 +62,24 @@
     cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
     trustExitCode = true
 [diff]
-	tool = vimdiff
-[difftool]
+	tool = difftastic
+[difftool "difftastic"]
+	cmd = difft $LOCAL $REMOTE
 	promt = false
-[diff "sopsdiffer"]
-	textconv = sops -d
+[pager]
+	difftool = true
 [gpg]
 	program = /usr/local/bin/gpg
 [commit]
 	gpgsign = true
+	verbose = true
 [http "https://gopkg.in"]
 	followRedirects = true
 [advice]
 	detachedHead = false
 [rerere]
 	enabled = false
+[init]
+	defaultBranch = main
+[safe]
+	directory = /vagrant
