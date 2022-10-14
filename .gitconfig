@@ -11,6 +11,7 @@
 	editor = hx
 	commentChar = *
 [alias]
+	ad = add .
     co = checkout
 	ci = commit
 	st = status
@@ -27,8 +28,11 @@
     rau = remote add upstream
 	head = "!f() { if [ -z \"$1\" ]; then echo 'error: no remote specified' >&2; return 1; fi; git symbolic-ref refs/remotes/$1/HEAD; }; f"
 	mbr = "!f() { if ! git head upstream >/dev/null 2>&1; then git reset-upstream; fi; set -o pipefail; git head upstream | cut -f4 -d/; }; f"
+	mbo = "!f() { if ! git head origin >/dev/null 2>&1; then git reset-upstream; fi; set -o pipefail; git head origin | cut -f4 -d/; }; f"
+	fo = fetch -a origin
 	fup = fetch upstream
 	rb = rebase
+	rbo = "!f() { git rebase origin/$(git mbo) \"$@\"; }; f"
 	rbup = "!f() { git rebase upstream/$(git mbr) \"$@\"; }; f"
 	po = push origin
 	pocur = !git po $(git curbr)
