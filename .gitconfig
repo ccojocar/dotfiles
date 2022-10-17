@@ -28,7 +28,7 @@
     rau = remote add upstream
 	head = "!f() { if [ -z \"$1\" ]; then echo 'error: no remote specified' >&2; return 1; fi; git symbolic-ref refs/remotes/$1/HEAD; }; f"
 	mbr = "!f() { if ! git head upstream >/dev/null 2>&1; then git reset-upstream; fi; set -o pipefail; git head upstream | cut -f4 -d/; }; f"
-	mbo = "!f() { if ! git head origin >/dev/null 2>&1; then git reset-upstream; fi; set -o pipefail; git head origin | cut -f4 -d/; }; f"
+	mbo = !git head origin | cut -f4 -d/
 	fo = fetch -a origin
 	fup = fetch upstream
 	rb = rebase
