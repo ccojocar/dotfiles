@@ -1,0 +1,6 @@
+set drawbox
+set hidden
+
+cmd mkdir %mkdir "$@"
+map a push :mkdir<space>
+map x delete

@@ -18,3 +18,7 @@ select = "underline"
 
 [editor.file-picker]
 hidden = false
+
+[keys.normal]
+C-y = ":clipboard-yank" 
+C-p = ":clipboard-paste-after"
