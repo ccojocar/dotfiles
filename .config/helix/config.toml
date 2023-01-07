@@ -22,3 +22,4 @@ hidden = false
 [keys.normal]
 C-y = ":clipboard-yank" 
 C-p = ":clipboard-paste-after"
+esc = ["collapse_selection", "keep_primary_selection"]
