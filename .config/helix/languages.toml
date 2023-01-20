@@ -1,6 +1,24 @@
 [[language]]
-name = "makrdown"
+name = "go"
+indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "markdown"
 language-server = { command = "ltex-ls" }
-file-types = ["md"]
+file-types = ["md"," markdown"]
 scope = "source.markdown"
+roots = []
+
+[[language]]
+name = "gitcommit"
+language-server = { command = "ltex-ls" }
+file-types = ["gitcommit","COMMIT_EDITMSG"]
+scope = "source.gitcommit"
+roots = []
+
+[[language]]
+name = "text"
+language-server = { command = "ltex-ls" }
+file-types = ["txt","text"]
+scope = "source.text"
 roots = []
