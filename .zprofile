@@ -14,8 +14,8 @@ export PATH=/usr/local/bin:/opt/local/bin:/opt/local/sbin:${HOME}/bin:$PATH
 # Editor
 alias vi='nvim'
 alias vim='nvim'
-export EDITOR=hx
-export VIEW=hx
+export EDITOR=nvim
+export VIEW=nvim
 
 # Watch
 alias w='watch -c -t'
