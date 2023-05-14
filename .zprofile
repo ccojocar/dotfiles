@@ -16,6 +16,7 @@ alias vi='nvim'
 alias vim='nvim'
 export EDITOR=nvim
 export VIEW=nvim
+export cat='bat'
 
 # Watch
 alias w='watch -c -t'
