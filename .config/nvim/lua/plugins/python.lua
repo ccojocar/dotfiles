@@ -12,7 +12,19 @@ return {
     opts = {
       servers = {
         pylsp = {},
-        pyright = {},
+        pyright = {
+          settings = {
+            python = {
+              analysis = {
+                autoImportCompletions = true,
+                typeCheckingMode = "off",
+                autoSearchPaths = true,
+                useLibraryCodeForTypes = true,
+                diagnosticMode = "workspace", -- "openFilesOnly",
+              },
+            },
+          },
+        },
       },
     },
   },
