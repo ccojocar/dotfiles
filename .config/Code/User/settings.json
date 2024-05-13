@@ -213,6 +213,20 @@
             "before": [
                 "<leader>",
                 "b",
+                "c"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "bookmarks.clearFromAllFiles",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "b",
                 "d"
             ],
             "after": [],
@@ -221,6 +235,12 @@
                     "command": "workbench.action.closeActiveEditor",
                     "args": []
                 }
+            ]
+        },
+        {
+            "before": ["<leader>", "b", "l"],
+            "commands": [
+                "bookmarks.list"
             ]
         },
         {
@@ -249,6 +269,12 @@
                     "command": "workbench.action.previousEditor",
                     "args": []
                 }
+            ]
+        },
+        {
+            "before": ["<leader>", "b", "t"],
+            "commands": [
+                "bookmarks.toggle"
             ]
         },
         {
@@ -829,20 +855,6 @@
             "before": [
                 "<leader>",
                 "t",
-                "m"
-            ],
-            "after": [],
-            "commands": [
-                {
-                    "command": "workbench.action.toggleMenuBar",
-                    "args": []
-                }
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "t",
                 "s"
             ],
             "after": [],
@@ -871,12 +883,12 @@
             "before": [
                 "<leader>",
                 "q",
-                "r"
+                "c"
             ],
             "after": [],
             "commands": [
                 {
-                    "command": "workbench.action.reloadWindow",
+                    "command": "workbench.action.closeWindow",
                     "args": []
                 }
             ]
@@ -1255,7 +1267,6 @@
     },
     "cmake.generator": "Unix Makefiles",
     "debug.allowBreakpointsEverywhere": true,
-    "workbench.activityBar.location": "hidden",
     "cSpell.ignoreWords": [
         "gpio"
     ],
@@ -1263,4 +1274,6 @@
     "cmake.showConfigureWithDebuggerNotification": false,
     "extensions.ignoreRecommendations": true,
     "redhat.telemetry.enabled": false,
+    "security.workspace.trust.untrustedFiles": "open",
+    "workbench.activityBar.location": "hidden",
 }

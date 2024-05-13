@@ -3,6 +3,10 @@ jj: escape insert mode
 C-k: peek declaration
 C-i: peek implementation
 C-h: show hover
+<operator>ae: select the entire content of the buffer
+<operator>ie: select the entire content of the buffer without leading and trailing spaces
+<operator>ia: select the arguments excluding separators
+<operator>aa: select the arguments including separators
 <leader>,: show commands
 <leader><tab>: next editor
 <leader>': toggle terminal
@@ -13,12 +17,46 @@ C-h: show hover
 
 # Editor
 <leader>bb: quick open
+<leader>bc: bookmarks clear from all files
 <leader>bd: close active editor
+<leader>bl: list bookmarks
 <leader>bn: next editor
 <leader>bp: previous editor
+<leader>bt: toggle bookmark
 
 # Comment
 <leader>cl: toggle comment
+gcc: comment line
+gC: comment selected block
+
+# Easy motion
+<leader><leader>s<char>: search character
+<leader><leader>f<char>: find character forward
+<leader><leader>F<char>: find character backward
+<leader><leader>t<char>: til character forward
+<leader><leader>T<char>: til character backward
+<leader><leader>w<char>: start of the word forward
+<leader><leader>b<char>: start of the word backward
+<leader><leader>e<char>: end of the word forward
+<leader><leader>ge<char>: end of the word backward
+<leader><leader>j<char>: start of the line forward
+<leader><leader>k<char>: start of the line backward
+
+# Sneak
+s<char><char>: move forward to the first occurrence of <char><char>
+S<char><char>: move backward to the first occurrence of <char><char>
+<operator>z<char><char>: perform operator forward to the first occurrence of <char><char>
+<operator>Z<char><char>: perform operator forward to the first occurrence of <char><char>
+<leader>w: move forward to the first start of CamelCase
+<leader>e: move forward to the end start of CamelCase
+<leader>b: move back to the prior beginning of CamelCase word segment
+
+# Surround
+ys<motion><desired>: add desired surround text defined by <motion>
+ds <existing>: delete existing surround
+cs <existing><desired>: change existing surround desired
+S <desired>: surround when in visual mode (surrounds full selection)
+
 
 # Errors
 <leader>ef: quick fix
@@ -89,8 +127,7 @@ C-h: show hover
 
 # Toggle
 <leader>tf: toggle full screen
-<leader>tm: toggle menu bar
-<leader>ts:select theme
+<leader>ts: select theme
 <leader>tt: toggle activity bar visibility
 
 # Smart selection
