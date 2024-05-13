@@ -1,0 +1,106 @@
+# Generic
+jj: escape insert mode
+C-k: peek declaration
+C-i: peek implementation
+C-h: show hover
+<leader>,: show commands
+<leader><tab>: next editor
+<leader>': toggle terminal
+<leader>=: format document
+<leader>1: focus editor 1
+<leader>2: focus editor 2
+<leader>3: focus editor 3
+
+# Editor
+<leader>bb: quick open
+<leader>bd: close active editor
+<leader>bn: next editor
+<leader>bp: previous editor
+
+# Comment
+<leader>cl: toggle comment
+
+# Errors
+<leader>ef: quick fix
+<leader>el: list problems
+<leader>en: next marker
+<leader>ep: previous marker
+
+# Files
+<leader>fe: open global settings
+<leader>ff: open file folder
+<leader>fn: new untitled file
+<leader>fr: open recent
+<leader>fs: save file
+<leader>fy: copy path of active file
+
+# Git
+<leader>gb: git checkout
+<leader>gB: git branch
+<leader>gc: commit all
+<leader>gd: diff with previous
+<leader>gl: open lazy git
+<leader>gH: show quick git file history
+<leader>gh: show quick repository history
+<leader>gk: git clean all
+<leader>gs: show quick git repo status
+<leader>gS: git stage all
+<leader>gm: toggle file blame
+<leader>gp: git push to
+<leader>gr: pull rebase
+<leader>gq: show quick commit file details
+<leader>gx: unstage all
+<leader>g/: show commit search
+
+# Language
+<leader>la: go add import
+<leader>lb: go build workspace
+<leader>ld: go to declaration
+<leader>lf: go test generate function
+<leader>li: go to implementation
+<leader>lI: go implementation cursor
+<leader>ll: lint workspace
+<leader>lk: add structure tags
+<leader>lK: remove structure tags
+<leader>lr: go to references
+<leader>lt: toggle test file
+<leader>lT: generate test file
+<leader>ls: fill structure
+<leader>lS: trigger reference search
+<leader>lp: get package
+<leader>lP: browse package
+<leader>lv: vet workspace
+
+# Project
+<leader>pc: close folder
+<leader>pe: view explorer
+<leader>pf: quick open project files
+<leader>po: open file folder
+<leader>pt: toggle sidebar visibility
+<leader>pp: open recent projects
+
+# Search
+<leader>ss: go to symbol
+<leader>sp: find in project files
+<leader>sy: find in project files with selected text
+
+# Refactor
+<leader>r: rename symbol
+
+# Toggle
+<leader>tf: toggle full screen
+<leader>tm: toggle menu bar
+<leader>ts:select theme
+<leader>tt: toggle activity bar visibility
+
+# Smart selection
+<leader>v: smart select grow
+<leader>V: smart select shrink
+
+# Window
+<leader>/: split editor
+<leader>qr: reload window
+<leader>qq: close VSCode
+<leader>wc: close active editor
+<leader>wo: reopen closed editor
+<leader>ww: focus next window

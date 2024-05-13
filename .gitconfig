@@ -1,7 +1,7 @@
 [user]
 	name = Cosmin Cojocar
 	email = cosmin@cojocar.ch
-	signingkey =  "1651311633E69E91A2770BB27E847E8D5B94C6F9"
+  	signingkey = "ED08BEB66016E461"
 [core]
 	mergeoptions = --no-edit
 	repositoryformatversion = 0
@@ -12,7 +12,7 @@
 	commentChar = *
 [alias]
 	ad = add .
-  co = checkout
+  	co = checkout
 	ci = commit
 	st = status
 	br = branch
@@ -47,8 +47,8 @@
 	lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
 	lg = !git lg1
 	d = difftool
-  m = mergetool
-  undo = !git reset --hard && git clean -fd
+  	m = mergetool
+  	undo = !git reset --hard && git clean -fd
 [color]
 	ui = true
 [credential]
@@ -58,7 +58,7 @@
 [merge]
   tool = vimdiff
 	conflictstyle = diff3
-[mergetool]
+# [mergetool]
   prompt = false
   keepBackup = false
 [mergetool "vimdiff"]
@@ -86,3 +86,5 @@
 	defaultBranch = main
 [safe]
 	directory = /vagrant
+[url "git@github.com:"]
+    insteadOf = "https://github.com/"

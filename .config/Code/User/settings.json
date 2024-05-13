@@ -1,10 +1,25 @@
 {
     "editor.minimap.enabled": false,
+    "editor.fontFamily": "Source Code Pro for Powerline",
+    "editor.lineNumbers": "on",
+    "editor.codeLens": false,
+    "editor.suggestSelection": "first",
+    "editor.letterSpacing": 0.40,
+    "editor.lineHeight": 18,
+    "editor.links": false,
     "editor.fontSize": 11,
-    "editor.fontFamily": "Hack",
-   "editor.lineNumbers": "off",
+    "editor.inlayHints.enabled": "offUnlessPressed",
+    "breadcrumbs.enabled": false,
     "diffEditor.renderSideBySide": false,
-    "workbench.colorTheme": "Monokai ST3",
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#363537",
+        "statusBar.noFolderBackground": "#363537",
+        "statusBar.debuggingBackground": "#363537",
+        "statusBar.foreground": "#ffffff",
+        "statusBar.debuggingForeground": "#ffffff"
+    },
+    "workbench.colorTheme": "Monokai Pro New",
     "vim.easymotion": true,
     "vim.sneak": true,
     "vim.incsearch": true,
@@ -17,7 +32,9 @@
         "<C-a>": false,
         "<C-f>": false
     },
-    "vim.statusBarColorControl": true,
+    "extensions.experimental.affinity": {
+        "vscode.vim": 1
+    },
     "vim.insertModeKeyBindings": [
         {
             "before": [
@@ -30,6 +47,41 @@
         }
     ],
     "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<C-k>"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.peekDeclaration",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<C-i>"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.peekImplementation",
+                    "args": []
+                }
+            ]
+        },{
+            "before": [
+                "<C-h>"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.showHover",
+                    "args": []
+                }
+            ]
+        },
         {
             "before": [
                 "<C-t>"
@@ -418,7 +470,7 @@
             "after": [],
             "commands": [
                 {
-                    "command": "workbench.view.scm",
+                    "command": "lazygit.openLazygit",
                     "args": []
                 }
             ]
@@ -461,20 +513,6 @@
             "commands": [
                 {
                     "command": "git.cleanAll",
-                    "args": []
-                }
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "g",
-                "l"
-            ],
-            "after": [],
-            "commands": [
-                {
-                    "command": "gitlens.toggleCodeLens",
                     "args": []
                 }
             ]
@@ -587,20 +625,6 @@
             "commands": [
                 {
                     "command": "gitlens.showCommitSearch",
-                    "args": []
-                }
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "j",
-                "="
-            ],
-            "after": [],
-            "commands": [
-                {
-                    "command": "editor.action.formatDocument",
                     "args": []
                 }
             ]
@@ -736,7 +760,7 @@
             "before": [
                 "<leader>",
                 "s",
-                "j"
+                "s"
             ],
             "after": [],
             "commands": [
@@ -764,7 +788,7 @@
             "before": [
                 "<leader>",
                 "s",
-                "P"
+                "y"
             ],
             "after": [],
             "commands": [
@@ -777,7 +801,6 @@
         {
             "before": [
                 "<leader>",
-                "r",
                 "r"
             ],
             "after": [],
@@ -840,20 +863,6 @@
             "commands": [
                 {
                     "command": "workbench.action.toggleActivityBarVisibility",
-                    "args": []
-                }
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "q",
-                "f"
-            ],
-            "after": [],
-            "commands": [
-                {
-                    "command": "workbench.action.closeWindow",
                     "args": []
                 }
             ]
@@ -943,7 +952,7 @@
             "before": [
                 "<leader>",
                 "w",
-                "d"
+                "o"
             ],
             "after": [],
             "commands": [
@@ -985,7 +994,7 @@
             "before": [
                 "leader",
                 "l",
-                "a",
+                "a"
             ],
             "after": [],
             "commands": [
@@ -999,7 +1008,7 @@
             "before": [
                 "leader",
                 "l",
-                "b",
+                "b"
             ],
             "after": [],
             "commands": [
@@ -1013,7 +1022,21 @@
             "before": [
                 "leader",
                 "l",
-                "d",
+                "r"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.goToReferences",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "l",
+                "d"
             ],
             "after": [],
             "commands": [
@@ -1027,7 +1050,7 @@
             "before": [
                 "leader",
                 "l",
-                "f",
+                "f"
             ],
             "after": [],
             "commands": [
@@ -1069,7 +1092,7 @@
             "before": [
                 "leader",
                 "l",
-                "K",
+                "K"
             ],
             "after": [],
             "commands": [
@@ -1083,7 +1106,7 @@
             "before": [
                 "leader",
                 "l",
-                "I",
+                "I"
             ],
             "after": [],
             "commands": [
@@ -1097,7 +1120,7 @@
             "before": [
                 "leader",
                 "l",
-                "l",
+                "l"
             ],
             "after": [],
             "commands": [
@@ -1111,7 +1134,7 @@
             "before": [
                 "<leader>",
                 "l",
-                "t",
+                "t"
             ],
             "after": [],
             "commands": [
@@ -1125,7 +1148,7 @@
             "before": [
                 "leader",
                 "l",
-                "T",
+                "T"
             ],
             "after": [],
             "commands": [
@@ -1139,7 +1162,7 @@
             "before": [
                 "leader",
                 "l",
-                "r",
+                "s"
             ],
             "after": [],
             "commands": [
@@ -1153,7 +1176,7 @@
             "before": [
                 "leader",
                 "l",
-                "p",
+                "p"
             ],
             "after": [],
             "commands": [
@@ -1167,7 +1190,7 @@
             "before": [
                 "leader",
                 "l",
-                "P",
+                "P"
             ],
             "after": [],
             "commands": [
@@ -1204,48 +1227,40 @@
                     "args": []
                 }
             ]
-        },
+        }
     ],
-    "workbench.startupEditor": "newUntitledFile",
-    "workbench.activityBar.visible": false,
-    "workbench.colorCustomizations": {
-        "editor.background": "#1e1f1c",
-        "statusBar.background": "#005f5f",
-        "statusBar.noFolderBackground": "#005f5f",
-        "statusBar.debuggingBackground": "#005f5f"
-    },
-    "editor.codeLens": false,
-    "gitlens.keymap": "alternate",
-    "workbench.statusBar.visible": true,
-    "gitlens.advanced.messages": {
-        "suppressFileNotUnderSourceControlWarning": true,
-        "suppressResultsExplorerNotice": true,
-        "suppressShowKeyBindingsNotice": true
-    },
-    "gitlens.currentLine.enabled": false,
-    "gitlens.codeLens.enabled": false,
-    "gitlens.codeLens.recentChange.enabled": false,
-    "gitlens.codeLens.authors.enabled": false,
     "window.zoomLevel": 1,
     "go.useLanguageServer": true,
     "go.alternateTools": {
         "go-langserver": "gopls"
     },
-    "go.languageServerExperimentalFeatures": {
-        "diagnostics": true,
-    },
-    "go.buildOnSave": "off",
     "go.vetOnSave": "off",
     "[go]": {
         "editor.snippetSuggestions": "none",
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
-            "source.organizeImports": true
-        },
+            "source.organizeImports": "explicit"
+        }
     },
-    "go.autocompleteUnimportedPackages": true,
-    "vsicons.dontShowNewVersionMessage": true,
-    "editor.suggestSelection": "first",
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "git.enableCommitSigning": true
+    "git.enableCommitSigning": true,
+    "git.openRepositoryInParentFolders": "always",
+    "cmake.configureOnOpen": true,
+    "cmake.options.statusBarVisibility": "visible",
+    "cmake.showOptionsMovedNotification": false,
+    "cmake.buildEnvironment": {
+        "PICO_SDK_PATH": "/Users/cosmin/projects/embedded/pico-sdk/"
+    },
+    "cmake.environment": {
+        "PICO_SDK_PATH": "/Users/cosmin/projects/embedded/pico-sdk/"
+    },
+    "cmake.generator": "Unix Makefiles",
+    "debug.allowBreakpointsEverywhere": true,
+    "workbench.activityBar.location": "hidden",
+    "cSpell.ignoreWords": [
+        "gpio"
+    ],
+    "go.toolsManagement.autoUpdate": true,
+    "cmake.showConfigureWithDebuggerNotification": false,
+    "extensions.ignoreRecommendations": true,
+    "redhat.telemetry.enabled": false,
 }
