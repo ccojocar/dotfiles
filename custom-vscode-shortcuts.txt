@@ -94,19 +94,26 @@ S <desired>: surround when in visual mode (surrounds full selection)
 <leader>la: go add import
 <leader>lb: go build workspace
 <leader>ld: go to declaration
+<leader>le: go explorer run all tests
 <leader>lf: go test generate function
 <leader>li: go to implementation
 <leader>lI: go implementation cursor
 <leader>ll: lint workspace
+<leader>lg: generate test file
 <leader>lk: add structure tags
 <leader>lK: remove structure tags
 <leader>lr: go to references
 <leader>lt: toggle test file
-<leader>lT: generate test file
 <leader>ls: fill structure
 <leader>lS: trigger reference search
 <leader>lp: get package
 <leader>lP: browse package
+<leader>lra: go test workspace
+<leader>lrc: go test coverage
+<leader>lrf: go test function at cursor
+<leader>lrt: go test file
+<leader>lrp: go test package
+<leader>lrq: go test cancel
 <leader>lv: vet workspace
 
 # Project

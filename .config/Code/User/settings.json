@@ -1062,20 +1062,6 @@
             "before": [
                 "leader",
                 "l",
-                "f"
-            ],
-            "after": [],
-            "commands": [
-                {
-                    "command": "go.test.generate.function",
-                    "args": []
-                }
-            ]
-        },
-        {
-            "before": [
-                "leader",
-                "l",
                 "i"
             ],
             "after": [],
@@ -1090,12 +1076,12 @@
             "before": [
                 "leader",
                 "l",
-                "k"
+                "e"
             ],
             "after": [],
             "commands": [
                 {
-                    "command": "go.add.tags",
+                    "command": "goTestExplorer.runAllTest",
                     "args": []
                 }
             ]
@@ -1144,6 +1130,20 @@
         },
         {
             "before": [
+                "leader",
+                "l",
+                "g"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "go.test.generate.file",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
                 "<leader>",
                 "l",
                 "t"
@@ -1152,20 +1152,6 @@
             "commands": [
                 {
                     "command": "go.toggle.test.file",
-                    "args": []
-                }
-            ]
-        },
-        {
-            "before": [
-                "leader",
-                "l",
-                "T"
-            ],
-            "after": [],
-            "commands": [
-                {
-                    "command": "go.test.generate.file",
                     "args": []
                 }
             ]
@@ -1208,6 +1194,96 @@
             "commands": [
                 {
                     "command": "go.browse.packages",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "l",
+                "r",
+                "a"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "go.test.workspace",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "l",
+                "r",
+                "c"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "go.test.coverage",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "l",
+                "r",
+                "f"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "go.test.cursor",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "l",
+                "r",
+                "t"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "go.test.file",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "l",
+                "r",
+                "p"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "go.test.package",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "l",
+                "r",
+                "q"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "go.test.cancel",
                     "args": []
                 }
             ]
@@ -1275,5 +1351,4 @@
     "extensions.ignoreRecommendations": true,
     "redhat.telemetry.enabled": false,
     "security.workspace.trust.untrustedFiles": "open",
-    "workbench.activityBar.location": "hidden",
 }
