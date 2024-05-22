@@ -1048,6 +1048,20 @@
             "before": [
                 "leader",
                 "l",
+                "R"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.refactor",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "l",
                 "d"
             ],
             "after": [],
@@ -1144,20 +1158,6 @@
         },
         {
             "before": [
-                "<leader>",
-                "l",
-                "t"
-            ],
-            "after": [],
-            "commands": [
-                {
-                    "command": "go.toggle.test.file",
-                    "args": []
-                }
-            ]
-        },
-        {
-            "before": [
                 "leader",
                 "l",
                 "s"
@@ -1202,7 +1202,21 @@
             "before": [
                 "leader",
                 "l",
-                "r",
+                "n"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.rename",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "l",
+                "t",
                 "a"
             ],
             "after": [],
@@ -1217,7 +1231,7 @@
             "before": [
                 "leader",
                 "l",
-                "r",
+                "t",
                 "c"
             ],
             "after": [],
@@ -1232,7 +1246,7 @@
             "before": [
                 "leader",
                 "l",
-                "r",
+                "t",
                 "f"
             ],
             "after": [],
@@ -1247,7 +1261,7 @@
             "before": [
                 "leader",
                 "l",
-                "r",
+                "t",
                 "t"
             ],
             "after": [],
@@ -1262,7 +1276,7 @@
             "before": [
                 "leader",
                 "l",
-                "r",
+                "t",
                 "p"
             ],
             "after": [],
@@ -1275,9 +1289,24 @@
         },
         {
             "before": [
+                "<leader>",
+                "l",
+                "t",
+                "s"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "go.toggle.test.file",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
                 "leader",
                 "l",
-                "r",
+                "t",
                 "q"
             ],
             "after": [],
@@ -1315,6 +1344,20 @@
                     "args": []
                 }
             ]
+        },
+        {
+            "before": [
+                "leader",
+                "l",
+                "q"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.refactor",
+                    "args": []
+                }
+            ]
         }
     ],
     "window.zoomLevel": 1,
@@ -1347,8 +1390,10 @@
         "gpio"
     ],
     "go.toolsManagement.autoUpdate": true,
+    "go.testTimeout": "600s",
     "cmake.showConfigureWithDebuggerNotification": false,
     "extensions.ignoreRecommendations": true,
     "redhat.telemetry.enabled": false,
     "security.workspace.trust.untrustedFiles": "open",
+    "workbench.activityBar.location": "hidden",
 }

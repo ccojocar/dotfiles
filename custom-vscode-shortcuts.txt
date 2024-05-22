@@ -103,16 +103,18 @@ S <desired>: surround when in visual mode (surrounds full selection)
 <leader>lk: add structure tags
 <leader>lK: remove structure tags
 <leader>lr: go to references
-<leader>lt: toggle test file
+<leader>lR: refactor
+<leader>ln: rename
 <leader>ls: fill structure
 <leader>lS: trigger reference search
 <leader>lp: get package
 <leader>lP: browse package
-<leader>lra: go test workspace
-<leader>lrc: go test coverage
-<leader>lrf: go test function at cursor
-<leader>lrt: go test file
-<leader>lrp: go test package
+<leader>lta: go test workspace
+<leader>ltc: go test coverage
+<leader>ltf: go test function at cursor
+<leader>ltt: go test file
+<leader>ltp: go test package
+<leader>lts: toggle test file
 <leader>lrq: go test cancel
 <leader>lv: vet workspace
 
