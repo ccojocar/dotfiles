@@ -114,7 +114,7 @@ S <desired>: surround when in visual mode (surrounds full selection)
 <leader>ltf: go test function at cursor
 <leader>ltt: go test file
 <leader>ltp: go test package
-<leader>lts: toggle test file
+<leader>lto: toggle test file
 <leader>lrq: go test cancel
 <leader>lv: vet workspace
 
@@ -138,6 +138,10 @@ S <desired>: surround when in visual mode (surrounds full selection)
 <leader>tf: toggle full screen
 <leader>ts: select theme
 <leader>tt: toggle activity bar visibility
+
+# Move to next change
+<leader>mn: move to next change in editor
+<leader>mp: move to previous change in editor
 
 # Smart selection
 <leader>v: smart select grow
