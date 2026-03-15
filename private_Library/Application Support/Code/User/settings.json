@@ -1,0 +1,1634 @@
+{
+    "breadcrumbs.enabled": false,
+    "C_Cpp.autocomplete": "disabled",
+    "C_Cpp.errorSquiggles": "disabled",
+    "C_Cpp.formatting": "disabled",
+    "C_Cpp.intelliSenseEngine": "disabled",
+    "checkpatch.checkpatchPath": "scripts/checkpatch.pl",
+    "checkpatch.exclude": [
+        "**/.vscode/autostart/*.c"
+    ],
+    "checkpatch.run": "onSave",
+    "debug.allowBreakpointsEverywhere": true,
+    "debug.onTaskErrors": "debugAnyway",
+    "diffEditor.renderSideBySide": false,
+    "editor.minimap.enabled": false,
+    "editor.fontFamily": "Source Code Pro for Powerline",
+    "editor.lineNumbers": "on",
+    "editor.codeLens": false,
+    "editor.suggestSelection": "first",
+    "editor.letterSpacing": 0.40,
+    "editor.lineHeight": 18,
+    "editor.links": false,
+    "editor.fontSize": 13,
+    "editor.inlayHints.enabled": "offUnlessPressed",
+    "extensions.ignoreRecommendations": true,
+    "files.associations": {
+        "**/Kokonut.config": "textproto",
+        "**/arch/x86/entry/calling.h": "asm-intel-x86-generic",
+        "**/arm64/**/*.S": "arm64",
+        "**/x86/**/*.S": "asm-intel-x86-generic",
+        "*_defconfig": "kconfig"
+    },
+    "files.exclude": {
+        "**/*.a": true,
+        "**/*.builtin": true,
+        "**/*.map": true,
+        "**/*.modinfo": true,
+        "**/*.o": true,
+        "**/*.order": true,
+        "**/*.orig": true,
+        "**/*.symvers": true,
+        "**/*.tmp": true,
+        "**/.*.S": true,
+        "**/.*.cmd": true,
+        "**/.*.d": true,
+        "**/.tmp*": true,
+        "*.cache/**": true
+    },
+    "files.trimFinalNewlines": true,
+    "go.useLanguageServer": true,
+    "go.goplsOptions": {
+        "build.gopackagesDriver": "google3/devtools/gopackages",
+    },
+    "go.alternateTools": {
+        "go-langserver": "gopls"
+    },
+    "go.vetOnSave": "off",
+    "go.testTimeout": "5m",
+    "[go]": {
+        "editor.snippetSuggestions": "none",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        }
+    },
+    "git.enableCommitSigning": true,
+    "git.openRepositoryInParentFolders": "always",
+    "git.alwaysSignOff": true,
+    "search.exclude": {
+        "**/*.a": true,
+        "**/*.builtin": true,
+        "**/*.map": true,
+        "**/*.modinfo": true,
+        "**/*.o": true,
+        "**/*.order": true,
+        "**/*.orig": true,
+        "**/*.symvers": true,
+        "**/*.tmp": true,
+        "**/.*.S": true,
+        "**/.*.cmd": true,
+        "**/.*.d": true,
+        "**/.tmp*": true,
+        "*.cache/**": true
+    },
+    "security.workspace.trust.untrustedFiles": "open",
+    "systemtap-assistant.deploy-task": "Build systemtap tracer",
+    "systemtap-assistant.output": ".vscode/autostart/tracer.stp",
+    "trailing-spaces.deleteModifiedLinesOnly": true,
+    "trailing-spaces.highlightCurrentLine": false,
+    "trailing-spaces.trimOnSave": true,
+    "redhat.telemetry.enabled": false,
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#363537",
+        "statusBar.noFolderBackground": "#363537",
+        "statusBar.debuggingBackground": "#363537",
+        "statusBar.foreground": "#ffffff",
+        "statusBar.debuggingForeground": "#ffffff"
+    },
+    "workbench.startupEditor": "none",
+    "vim.easymotion": true,
+    "vim.sneak": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.leader": "<space>",
+    "vim.handleKeys": {
+        "<C-d>": true,
+        "<C-a>": false,
+        "<C-f>": false
+    },
+    "extensions.experimental.affinity": {
+        "vscode.vim": 1
+    },
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<C-h>"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.showHover",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<C-i>"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.peekImplementation",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<C-k>"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.peekDeclaration",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<C-l>"
+            ],
+            "after": [],
+            "commands": [
+                ":noh"
+            ]
+        },
+        {
+            "before": [
+                "<C-t>"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.navigateBack",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "'"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.terminal.toggleTerminal",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                ","
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.showCommands",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "."
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "claude-vscode.sidebar.open",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "/"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.splitEditor",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "="
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.formatDocument",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "<tab>"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.nextEditor",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "1"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.focusFirstEditorGroup",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "2"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.focusSecondEditorGroup",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "3"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.focusThirdEditorGroup",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "b",
+                "b"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.quickOpen",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "b",
+                "c"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "bookmarks.clearFromAllFiles",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "b",
+                "d"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.closeActiveEditor",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "b",
+                "l"
+            ],
+            "commands": [
+                "bookmarks.list"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "b",
+                "n"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.nextEditor",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "b",
+                "p"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.previousEditor",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "b",
+                "t"
+            ],
+            "commands": [
+                "bookmarks.toggle"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "c",
+                "c"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.blockCommen",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "c",
+                "l"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.commentLine",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "c",
+                "r"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.removeCommentLine",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "d",
+                "d"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "fig.openChange",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "d",
+                "n"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.compareEditor.nextChange",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "d",
+                "p"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.compareEditor.previousChange",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "e",
+                "f"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.quickFix",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "e",
+                "l"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.actions.view.problems",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "e",
+                "n"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.marker.next",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "e",
+                "p"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.marker.prev",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "f",
+                "e"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.openGlobalSettings",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "f",
+                "f"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.quickOpen",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "f",
+                "n"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.files.newUntitledFile",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "f",
+                "r"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.openRecent",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "f",
+                "s"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.files.save",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "f",
+                "y"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.files.copyPathOfActiveFile",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "B"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "git.branch",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "b"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "git.checkout",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "c"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "git.commitAll",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "g"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "lazygit.openLazygit",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "H"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "gitlens.showQuickFileHistory",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "h"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "gitlens.showQuickRepoHistory",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "k"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "git.cleanAll",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "p"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "git.pushTo",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "r"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "git.pullRebase",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "S"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "git.stageAll",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "x"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "git.unstageAll",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "j",
+                "j"
+            ],
+            "after": [
+                "leader",
+                "leader",
+                "s"
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "j",
+                "l"
+            ],
+            "after": [
+                "leader",
+                "leader",
+                "leader",
+                "b",
+                "d",
+                "j",
+                "k"
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "j",
+                "w"
+            ],
+            "after": [
+                "leader",
+                "leader",
+                "leader",
+                "b",
+                "d",
+                "w"
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "l",
+                "a"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "go.import.add",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "l",
+                "b"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "go.build.workspace",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "l",
+                "d"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.goToDeclaration",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "l",
+                "e"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "goTestExplorer.runAllTest",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "l",
+                "f"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "references-view.findReferences",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "l",
+                "g"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "go.test.generate.file",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "l",
+                "I"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "go.impl.cursor",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "l",
+                "i"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.goToImplementation",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "l",
+                "K"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "go.remove.tags",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "l",
+                "l"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "go.lint.workspace",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "l",
+                "n"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.rename",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "l",
+                "P"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "go.browse.packages",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "l",
+                "p"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "go.get.package",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "l",
+                "q"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.refactor",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "l",
+                "R"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.refactor",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "l",
+                "r"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.goToReferences",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "l",
+                "s"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.referenceSearch.trigger",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "l",
+                "s"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "go.fill.struct",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "l",
+                "t",
+                "a"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "go.test.workspace",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "l",
+                "t",
+                "c"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "go.test.coverage",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "l",
+                "t",
+                "f"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "go.test.cursor",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "l",
+                "t",
+                "o"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "go.toggle.test.file",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "l",
+                "t",
+                "p"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "go.test.package",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "l",
+                "t",
+                "q"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "go.test.cancel",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "l",
+                "t",
+                "t"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "go.test.file",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "l",
+                "v"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "go.vet.workspace",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "m",
+                "n"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.editor.nextChange",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "m",
+                "p"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.editor.previousChange",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "p",
+                "c"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.closeFolder",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "p",
+                "e"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.view.explorer",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "p",
+                "f"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.quickOpen",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "p",
+                "o"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.files.openFileFolder",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "p",
+                "p"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.workspace.open",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "p",
+                "r"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.openRecent",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "p",
+                "t"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.toggleSidebarVisibility",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "q",
+                "c"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.closeActiveEditor",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "q",
+                "q"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.closeAllEditor",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "r",
+                "b"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "relatedFiles.opneBuildFile",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "r",
+                "h"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "relatedFiles.openHeaderFile",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "r",
+                "r"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "relatedFiles.openRelatedFile",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "r",
+                "s"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "relatedFiles.openSourceFile",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "r",
+                "t"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "relatedFiles.openTestFile",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "s",
+                "c"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.view.extension.codesearch-view",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "s",
+                "p"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.findInFiles",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "s",
+                "s"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.gotoSymbol",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "t",
+                "f"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.toggleFullScreen",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "t",
+                "s"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.selectTheme",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "t",
+                "t"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.toggleActivityBarVisibility",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "V"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.smartSelect.shrink",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "v"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.smartSelect.grow",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "w",
+                "c"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.closeActiveEditor",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "w",
+                "o"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.reopenClosedEditor",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "w",
+                "W"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.focusPreviousGroup",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "w",
+                "w"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.focusNextGroup",
+                    "args": []
+                }
+            ]
+        }
+    ],
+    "python.analysis.typeCheckingMode": "standard",
+    "makefile.configureOnOpen": true,
+    "workbench.secondarySideBar.defaultVisibility": "hidden",
+    "[dockercompose]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.autoIndent": "advanced",
+        "editor.quickSuggestions": {
+            "other": true,
+            "comments": false,
+            "strings": true
+        },
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "[github-actions-workflow]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "lldb.suppressUpdateNotifications": true,
+    "python.languageServer": "Default",
+    "workbench.colorTheme": "Sonokai Espresso",
+    "go.toolsManagement.autoUpdate": true,
+    "chat.tools.urls.autoApprove": {
+        "https://*.go.dev": true,
+        "https://github.com": true,
+        "https://nvd.nist.gov": true,
+        "https://*.githubusercontent.com": true,
+        "https://*.biscuitsec.org": true,
+        "https://docs.rs": true,
+        "https://pkg.go.dev": true,
+        "https://pkg.go.dev/google.golang.org/adk": true,
+        "https://pkg.go.dev/google.golang.org": true,
+        "https://github.com/google/adk-go/tree/main/examples": true,
+        "https://github.com/google/adk-go/tree/main": true,
+        "https://github.com/google/adk-go/tree": true,
+        "https://github.com/google/adk-go": true,
+        "https://github.com/google": true,
+        "https://google.github.io/adk-docs/get-started/go": true,
+        "https://google.github.io/adk-docs/get-started": true,
+        "https://google.github.io/adk-docs": true,
+        "https://google.github.io": true,
+        "https://*.github.io": true,
+        "https://pkg.go.dev/vuln": true,
+        "https://www.cvedetails.com/vulnerability-list/vendor_id-14185/product_id-29205/Golang-GO.html": true,
+        "https://www.cvedetails.com/vulnerability-list/vendor_id-14185/product_id-29205": true,
+        "https://www.cvedetails.com/vulnerability-list/vendor_id-14185": true,
+        "https://www.cvedetails.com/vulnerability-list": true,
+        "https://www.cvedetails.com": true,
+        "https://*.cvedetails.com": true,
+        "https://www.onsecurity.io/blog/go-ssti-method-research": true,
+        "https://www.onsecurity.io/blog": true,
+        "https://www.onsecurity.io": true,
+        "https://*.onsecurity.io": true,
+        "https://blog.takemyhand.xyz/2020/05/ssti-breaking-gos-template-engine-to.html": true,
+        "https://blog.takemyhand.xyz/2020/05": true,
+        "https://blog.takemyhand.xyz/2020": true,
+        "https://blog.takemyhand.xyz": true,
+        "https://*.takemyhand.xyz": true
+    },
+    "chat.viewSessions.orientation": "stacked",
+    "claudeCode.preferredLocation": "sidebar"
+}
