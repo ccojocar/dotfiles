@@ -1,0 +1,17 @@
+git:
+  commit:
+    signOff: true
+customCommands:
+  - key: 'o'
+    context: 'localBranches'
+    description: 'Create Pull Request (Terminal)'
+    prompts:
+      - type: 'input'
+        title: 'PR Title'
+        key: 'Title'
+        initialValue: '{{.CheckedOutBranch.Name}}'
+      - type: 'input'
+        title: 'PR Body'
+        key: 'Body'
+    command: "gh pr create --title \"{{.Form.Title}}\" --body \"{{.Form.Body}}\""
+    output: terminal
