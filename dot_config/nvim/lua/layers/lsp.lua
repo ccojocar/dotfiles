@@ -8,7 +8,7 @@ return {
     dependencies = { "williamboman/mason.nvim" },
     opts = {
       -- rust_analyzer omitted: managed by rustaceanvim
-      ensure_installed = { "gopls", "lua_ls" },
+      ensure_installed = { "clangd", "gopls", "lua_ls" },
       automatic_enable = true, -- calls vim.lsp.enable() for installed servers
     },
   },
@@ -53,6 +53,13 @@ return {
         },
       })
 
+      -- C
+      vim.lsp.config("clangd", {
+        cmd          = { "clangd", "--background-index", "--clang-tidy" },
+        filetypes    = { "c", "h" },
+        root_markers = { "compile_commands.json", "compile_flags.txt", ".git" },
+      })
+
       -- Lua (for editing this config)
       vim.lsp.config("lua_ls", {
         cmd        = { "lua-language-server" },
@@ -86,6 +93,8 @@ return {
           map("<Space>ld", vim.diagnostic.open_float,  "Line diagnostics")
           map("[d",        vim.diagnostic.goto_prev,   "Prev diagnostic")
           map("]d",        vim.diagnostic.goto_next,   "Next diagnostic")
+          map("[e",        function() vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR }) end, "Prev error")
+          map("]e",        function() vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR }) end, "Next error")
         end,
       })
 
@@ -135,6 +144,7 @@ return {
     event = "BufWritePre",
     opts = {
       formatters_by_ft = {
+        c    = { "clang-format" },
         go   = { "gofumpt", "goimports" },
         rust = { "rustfmt" },
         lua  = { "stylua" },

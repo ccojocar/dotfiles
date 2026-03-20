@@ -21,7 +21,7 @@ autocmd("FileType", {
 -- Remove trailing whitespace on save
 autocmd("BufWritePre", {
   group = augroup("trim_whitespace", { clear = true }),
-  pattern = { "*.go", "*.rs", "*.lua" },
+  pattern = { "*.c", "*.h", "*.go", "*.rs", "*.lua" },
   callback = function()
     local pos = vim.api.nvim_win_get_cursor(0)
     vim.cmd([[%s/\s\+$//e]])

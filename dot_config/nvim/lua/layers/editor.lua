@@ -6,7 +6,7 @@ return {
     config = function()
       require("nvim-treesitter").setup({
         ensure_installed = {
-          "lua", "rust", "go", "gomod", "gosum",
+          "c", "lua", "rust", "go", "gomod", "gosum",
           "toml", "json", "yaml", "markdown",
         },
       })
