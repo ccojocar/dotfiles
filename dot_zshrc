@@ -108,12 +108,12 @@ export XDG_CONFIG_HOME="$HOME/.config"
 set -o vi
 
 # Editor
-alias vi='code --wait'
-alias vim='code --wait'
-export EDITOR='code --wait'
-export VIEW='code --wait'
+alias vi='nvim'
+alias vim='nvim'
+export EDITOR='nvim'
+export VIEW='nvim'
 
-# Github 
+# Github
 alias ghp='gh pr create'
 
 # Go
