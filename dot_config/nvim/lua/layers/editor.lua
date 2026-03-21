@@ -24,6 +24,7 @@ return {
       vim.keymap.set("n", "<Space>fh", t.help_tags,   { desc = "Help tags" })
       vim.keymap.set("n", "<Space>fr", t.oldfiles,    { desc = "Recent files" })
       vim.keymap.set("n", "<Space>fd", t.diagnostics, { desc = "Diagnostics" })
+      vim.keymap.set("n", "<Space>fs", t.lsp_document_symbols, { desc = "Document symbols" })
       vim.keymap.set("n", "<Space>fk", t.keymaps,     { desc = "Keymaps" })
     end,
   },
