@@ -95,6 +95,8 @@ return {
           map("]d",        vim.diagnostic.goto_next,   "Next diagnostic")
           map("[e",        function() vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR }) end, "Prev error")
           map("]e",        function() vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR }) end, "Next error")
+          map("[w",        function() vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.WARN }) end, "Prev warning")
+          map("]w",        function() vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.WARN }) end, "Next warning")
         end,
       })
 
