@@ -28,3 +28,13 @@ autocmd("BufWritePre", {
     vim.api.nvim_win_set_cursor(0, pos)
   end,
 })
+
+-- Spell checking for Markdown
+autocmd("FileType", {
+  group = augroup("markdown_settings", { clear = true }),
+  pattern = "markdown",
+  callback = function()
+    vim.opt_local.spell = true
+    vim.opt_local.spelllang = "en_us"
+  end,
+})
