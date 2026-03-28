@@ -22,6 +22,11 @@ map("n", "<Space>bn", "<cmd>bnext<CR>",   { desc = "Next buffer" })
 map("n", "<Space>bp", "<cmd>bprev<CR>",   { desc = "Prev buffer" })
 map("n", "<Space>bd", "<cmd>bdelete<CR>", { desc = "Delete buffer" })
 
+-- Copy file path to clipboard
+map("n", "<Space>cp", function()
+  vim.fn.setreg("+", vim.fn.expand("%:p"))
+end, { desc = "Copy absolute path" })
+
 -- Move selected lines in visual mode
 map("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
 map("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })

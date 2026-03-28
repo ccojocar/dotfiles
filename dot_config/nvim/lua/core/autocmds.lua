@@ -38,3 +38,26 @@ autocmd("FileType", {
     vim.opt_local.spelllang = "en_us"
   end,
 })
+
+-- Restore last session buffers
+vim.o.sessionoptions = "buffers,curdir,tabpages,winsize"
+
+local session_file = vim.fn.stdpath("data") .. "/session.vim"
+
+autocmd("VimLeavePre", {
+  group = augroup("save_session", { clear = true }),
+  callback = function()
+    vim.cmd("mksession! " .. session_file)
+  end,
+})
+
+autocmd("VimEnter", {
+  group = augroup("restore_session", { clear = true }),
+  callback = function()
+    if vim.fn.argc() == 0
+      and vim.fn.filereadable(session_file) == 1
+    then
+      vim.cmd("source " .. session_file)
+    end
+  end,
+})
