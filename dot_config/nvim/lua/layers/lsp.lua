@@ -8,7 +8,7 @@ return {
     dependencies = { "williamboman/mason.nvim" },
     opts = {
       -- rust_analyzer omitted: managed by rustaceanvim
-      ensure_installed = { "clangd", "gopls", "lua_ls" },
+      ensure_installed = { "clangd", "gopls", "lua_ls", "zls" },
       automatic_enable = true, -- calls vim.lsp.enable() for installed servers
     },
   },
@@ -72,6 +72,13 @@ return {
             telemetry   = { enable = false },
           },
         },
+      })
+
+      -- Zig
+      vim.lsp.config("zls", {
+        cmd          = { "zls" },
+        filetypes    = { "zig", "zon" },
+        root_markers = { "build.zig", "build.zig.zon", ".git" },
       })
 
       -- LSP keymaps on attach
@@ -150,6 +157,7 @@ return {
         go   = { "gofumpt", "goimports" },
         rust = { "rustfmt" },
         lua  = { "stylua" },
+        zig  = { "zigfmt" },
       },
       format_on_save = { timeout_ms = 500, lsp_fallback = true },
     },
