@@ -107,6 +107,9 @@ export XDG_CONFIG_HOME="$HOME/.config"
 
 set -o vi
 
+# Binaries
+export PATH="$PATH":$HOME/bin
+
 # Editor
 alias vi='nvim'
 alias vim='nvim'
@@ -130,3 +133,7 @@ export PATH=$PATH:$HOME/.cargo/bin
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
