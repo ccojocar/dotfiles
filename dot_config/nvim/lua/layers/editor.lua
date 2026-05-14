@@ -1,4 +1,4 @@
--- Editor layer: syntax highlighting, fuzzy search, and AI assistance
+-- Editor layer: syntax highlighting and fuzzy search
 return {
   {
     "nvim-treesitter/nvim-treesitter",
@@ -65,22 +65,5 @@ return {
       { "r",     mode = "o",               function() require("flash").remote() end,             desc = "Remote Flash" },
       { "<c-s>", mode = { "c" },           function() require("flash").toggle() end,             desc = "Toggle Flash Search" },
     },
-  },
-
-  -- Claude Code integration (requires `claude` CLI in PATH)
-  {
-    "greggh/claude-code.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    config = function()
-      require("claude-code").setup({
-        window = {
-          position   = "rightbelow vsplit",
-          split_ratio = 0.35,
-        },
-      })
-      -- Space-a prefix for AI
-      vim.keymap.set("n", "<Space>ac", "<cmd>ClaudeCode<CR>",       { desc = "Claude Code" })
-      vim.keymap.set("n", "<Space>at", "<cmd>ClaudeCodeToggle<CR>", { desc = "Claude Code toggle" })
-    end,
   },
 }
